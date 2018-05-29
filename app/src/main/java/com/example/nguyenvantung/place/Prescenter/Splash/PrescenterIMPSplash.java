@@ -1,4 +1,4 @@
-package com.example.nguyenvantung.place.Precenter.Splash;
+package com.example.nguyenvantung.place.Prescenter.Splash;
 
-public class PrescenterIMPSplash {
+public interface PrescenterIMPSplash {
 }
