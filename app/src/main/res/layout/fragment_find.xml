@@ -3,12 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Main.Fragment.FindFragment">
+    tools:context=".View.Find.FindFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Find" />
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:elevation="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 
 </FrameLayout>
