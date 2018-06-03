@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:icon="@drawable/ic_home_grey"
+        android:icon="@drawable/ic_home_black"
         android:title=""
         android:id="@+id/menu_bottom_nav_home"/>
     <item
-        android:icon="@drawable/ic_search_grey_24px"
+        android:icon="@drawable/ic_search_black_24px"
         android:title=""
         android:id="@+id/menu_bottom_nav_find"/>
     <item
-        android:icon="@drawable/ic__add_grey_24px"
+        android:icon="@drawable/ic__add_black_24px"
         android:title=""
         android:id="@+id/menu_bottom_nav_upload"/>
     <item
-        android:icon="@drawable/ic_notifications_grey_24px"
+        android:icon="@drawable/ic_notifications_black_24px"
         android:title=""
         android:id="@+id/menu_bottom_nav_notifi"/>
     <item
-        android:icon="@drawable/ic_person_grey_24px"
+        android:icon="@drawable/ic_person_black_24px"
         android:title=""
         android:id="@+id/menu_bottom_nav_user"/>
 

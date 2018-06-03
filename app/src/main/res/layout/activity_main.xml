@@ -8,56 +8,21 @@
     android:fitsSystemWindows="true"
     tools:context=".View.Main.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/main_toolbar"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-            <LinearLayout
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackground"
-                android:layout_marginRight="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="56dp">
-                <TextView
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:text="@string/Search"
-                    android:textColor="?android:textColorHint"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?attr/selectableItemBackground"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-
-    <fragment
+    <FrameLayout
         android:id="@+id/main_fragment"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:layout="@layout/fragment_home"
-        class="com.example.nguyenvantung.place.View.Main.Fragment.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_bottom_nav"
         android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
         app:menu="@menu/bottom_nav_main"
         android:scrollbars="vertical"
         android:scrollIndicators="none"
         android:elevation="5dp"
-        app:itemIconTint="@color/colorPrimaryDark"
+        app:itemIconTint="@color/colorBlack"
         app:itemTextColor="@color/colorBlack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

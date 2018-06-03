@@ -7,18 +7,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.ActionMenuItem;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.nguyenvantung.place.R;
-import com.example.nguyenvantung.place.View.Main.Fragment.FindFragment;
-import com.example.nguyenvantung.place.View.Main.Fragment.HomeFragment;
-import com.example.nguyenvantung.place.View.Main.Fragment.NotifiFragment;
-import com.example.nguyenvantung.place.View.Main.Fragment.UploadFragment;
-import com.example.nguyenvantung.place.View.Main.Fragment.UserFragment;
+import com.example.nguyenvantung.place.View.Find.FindFragment;
+import com.example.nguyenvantung.place.View.Home.HomeFragment;
+import com.example.nguyenvantung.place.View.Notifi.NotifiFragment;
+import com.example.nguyenvantung.place.View.Upload.UploadFragment;
+import com.example.nguyenvantung.place.View.User.UserFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private Toolbar main_toolbar;
@@ -33,18 +30,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mFragmentManager = getSupportFragmentManager();
+
         addControls();
         addEvents();
     }
 
     //khởi tạo control
     private void addControls() {
-        //toolbar
-        main_toolbar = findViewById(R.id.main_toolbar);
-        setSupportActionBar(main_toolbar);
-
         //bottom navigation
         main_bottom_nav = findViewById(R.id.main_bottom_nav);
+        main_bottom_nav.setSelectedItemId(R.id.menu_bottom_nav_home);
+        nextFragment(new HomeFragment());
+
     }//end khởi tạo control
 
 
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     //sự kiện chuyển fragment
     private void nextFragment(Fragment fragment){
-        mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.main_fragment, fragment).commit();
     }// end sự kiện chuyển fragment
