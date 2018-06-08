@@ -1,4 +1,4 @@
-package com.example.nguyenvantung.place.View.Login.Fragment;
+package com.example.nguyenvantung.place.View.Login.Fragment.UserLogin;
 
 
 import android.os.Bundle;

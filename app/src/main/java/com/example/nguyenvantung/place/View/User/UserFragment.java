@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.R;
@@ -49,7 +48,7 @@ public class UserFragment extends Fragment {
 
     private void initData() {
         Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + Common.AVATAR_PLACE)
-                .resize(150, 150)
+                .resize(350, 350)
                 .centerCrop()
                 .into(user_img_avatar);
 

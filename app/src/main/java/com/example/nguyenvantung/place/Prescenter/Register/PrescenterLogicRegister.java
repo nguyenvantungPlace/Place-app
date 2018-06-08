@@ -84,7 +84,6 @@ public class PrescenterLogicRegister implements IPrescenterRegister {
 
     @Override
     public void loginUser(String user_name, String passowrd) {
-
         Call<UserPlaceModel> callback = dataClient.loginPlace(Common.CONTROLLER_USER,
                 Common.ACTION_LOGIN_PLACE, user_name, passowrd);
         callback.enqueue(new Callback<UserPlaceModel>() {

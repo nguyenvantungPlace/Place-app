@@ -69,6 +69,7 @@
 
                     <TextView
                         android:id="@+id/user_edit_profile"
+                        android:drawableLeft="@drawable/ic_error_red_24dp"
                         android:textSize="10sp"
                         android:padding="12dp"
                         android:gravity="center"

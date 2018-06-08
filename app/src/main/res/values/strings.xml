@@ -18,4 +18,6 @@
     <string name="repassword_false">Bạn cần nhập đúng với ô mật khẩu</string>
     <string name="user_name_error_legth">Ít nhất 8 kí tự và không có khoảng trắng</string>
     <string name="requesting_to_server">Đang gửi yêu cầu lên server, vui lòng chờ</string>
+    <string name="login_fail_username">Có thể bạn sai tên đăng nhập</string>
+    <string name="login_fail_password">Có thể bạn sai mật khẩu</string>
 </resources>

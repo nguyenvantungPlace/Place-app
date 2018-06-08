@@ -5,9 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.nguyenvantung.place.View.Login.Fragment.PlaceLoginFragment;
-import com.example.nguyenvantung.place.View.Login.Fragment.UserLoginFragment;
-import com.example.nguyenvantung.place.View.User.UserFragment;
+import com.example.nguyenvantung.place.View.Login.Fragment.PlaceLogin.PlaceLoginFragment;
+import com.example.nguyenvantung.place.View.Login.Fragment.UserLogin.UserLoginFragment;
 
 import java.util.ArrayList;
 import java.util.List;
