@@ -4,4 +4,20 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user">Người dùng</string>
+    <string name="login">Đăng nhập</string>
+    <string name="Login">Đăng nhập</string>
+    <string name="user_name">tên đăng nhập</string>
+    <string name="password">mật khẩu</string>
+    <string name="register">Đăng ký</string>
+    <string name="fogot_password">Quên mật khẩu</string>
+    <string name="add_avatar_place">Thêm ảnh đại diện</string>
+    <string name="re_password">Nhập lại mật khẩu</string>
+    <string name="username_used">Tên đăng nhập đã được sử dung</string>
+    <string name="password_false">Chiều dài từ 8 đến 22 kí tự</string>
+    <string name="repassword_false">Bạn cần nhập đúng với ô mật khẩu</string>
+    <string name="user_name_error_legth">Ít nhất 8 kí tự và không có khoảng trắng</string>
+    <string name="requesting_to_server">Đang gửi yêu cầu lên server, vui lòng chờ</string>
+    <string name="login_fail_username">Có thể bạn sai tên đăng nhập</string>
+    <string name="login_fail_password">Có thể bạn sai mật khẩu</string>
 </resources>

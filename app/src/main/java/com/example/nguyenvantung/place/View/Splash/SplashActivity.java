@@ -7,8 +7,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.R;
-import com.example.nguyenvantung.place.View.Main.MainActivity;
+import com.example.nguyenvantung.place.View.Login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
     //control
@@ -23,8 +24,8 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         addControls();
+        checkLogin();
         addAnimation();
-        nextActivity();
     }
 
 
@@ -32,12 +33,27 @@ public class SplashActivity extends AppCompatActivity {
         splash_img_logo = findViewById(R.id.splash_img_logo);
     }
 
+    private void checkLogin() {
+        Common.LOGIN_SHAREPREFERENCES = getSharedPreferences("LOGIN", MODE_PRIVATE);
+        Common.TOKEN_FACEBOOK = Common.LOGIN_SHAREPREFERENCES.getString("TOKENFACEBOOK", "");
+        Common.USER_NAME_PLACE = Common.LOGIN_SHAREPREFERENCES.getString("USER_NAME_PLACE", "");
+        Common.PASSWORD_PLACE = Common.LOGIN_SHAREPREFERENCES.getString("PASSWORD_PLACE", "");
+
+        if (Common.TOKEN_FACEBOOK.equals("") && Common.USER_NAME_PLACE.equals("")){
+            nextActivity(LoginActivity.class);
+        }else if (!Common.USER_NAME_PLACE.equals("")){
+            //login place
+        }else if (!Common.TOKEN_FACEBOOK.equals("")){
+            //login token facebook
+        }
+    }
+
     private void addAnimation() {
         animation = AnimationUtils.loadAnimation(this, R.anim.ani_splash_img_logo);
         splash_img_logo.startAnimation(animation);
     }
 
-    private void nextActivity(){
+    private void nextActivity(final Class aClass){
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -45,8 +61,9 @@ public class SplashActivity extends AppCompatActivity {
                     Thread.sleep(3000);
                 }catch (Exception e){}
                 finally {
-                    Intent iMain = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent iMain = new Intent(SplashActivity.this, aClass);
                     startActivity(iMain);
+                    finish();
                 }
             }
         });
