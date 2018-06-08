@@ -6,14 +6,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.R;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class UserFragment extends Fragment {
+    private View view;
+    private TextView user_txt_user_name, user_size_post, user_edit_profile;
+    private CircleImageView user_img_avatar;
 
 
     public UserFragment() {
@@ -25,8 +33,31 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Toast.makeText(getActivity(), "fragment home", Toast.LENGTH_SHORT).show();
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        view = inflater.inflate(R.layout.fragment_user, container, false);
+        addControlls();
+        initData();
+        addEvents();
+        return view;
+    }
+
+    private void addControlls() {
+        user_img_avatar    = view.findViewById(R.id.user_img_avatar);
+        user_txt_user_name = view.findViewById(R.id.user_txt_user_name);
+        user_size_post     = view.findViewById(R.id.user_size_post);
+        user_edit_profile  = view.findViewById(R.id.user_edit_profile);
+    }
+
+    private void initData() {
+        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + Common.AVATAR_PLACE)
+                .resize(150, 150)
+                .centerCrop()
+                .into(user_img_avatar);
+
+        user_txt_user_name.setText(Common.USER_NAME_PLACE);
+    }
+
+    private void addEvents() {
+
     }
 
 }

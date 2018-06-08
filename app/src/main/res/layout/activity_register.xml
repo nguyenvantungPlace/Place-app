@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Register.RegisterActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/register_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:layout_marginRight="48dp"
+                android:fontFamily="monospace"
+                android:textStyle="italic"
+                android:textSize="18sp"
+                android:text="@string/register"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_16"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_16"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/register_img_avatar"
+                android:src="@drawable/ic_person_grey_150dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+            <TextView
+                android:id="@+id/register_txt_change_avatar"
+                android:layout_marginTop="@dimen/margin_8"
+                android:textColor="@color/blue_secondary"
+                android:text="@string/add_avatar_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <android.support.design.widget.TextInputLayout
+                android:hint="@string/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/register_edit_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="@dimen/margin_16"
+                android:hint="@string/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/register_edit_passowrd"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="@dimen/margin_16"
+                android:hint="@string/re_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/register_edit_repassword"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/register_action_register"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="@string/register"
+                android:padding="@dimen/margin_8"
+                android:layout_marginTop="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
