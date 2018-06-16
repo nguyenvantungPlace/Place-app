@@ -2,6 +2,8 @@ package com.example.nguyenvantung.place.Common;
 
 import android.content.SharedPreferences;
 
+import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
+
 public class Common {
     //server
     public static final String HOST = "http://192.168.1.10/";
@@ -33,14 +35,10 @@ public class Common {
     public static final String REQUEST_SERVER_PASSWORD = "password";
     public static final String REQUSET_SERVER_ENCODE_IMAGE = "encoded_image";
     public static final String REQUSET_SERVER_IMAGE_NAME = "image_name";
+    public static final String REQUEST_SERVER_NAME = "name";
 
     // info login place
-    public static int ID_USER_PLACE = 0;
-    public static String USER_NAME_PLACE = "";
-    public static String PASSWORD_PLACE = "";
-    public static String AVATAR_PLACE = "";
-
-    public static String TOKEN_FACEBOOK = "";
+    public static UserModel USER = new UserModel();
 
     public static SharedPreferences LOGIN_SHAREPREFERENCES;
 }

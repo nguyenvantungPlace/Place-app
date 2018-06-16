@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Common.Common;
-import com.example.nguyenvantung.place.Model.ObjectModel.UserPlaceModel;
+import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 import com.example.nguyenvantung.place.Prescenter.Register.PrescenterLogicRegister;
 import com.example.nguyenvantung.place.R;
 import com.example.nguyenvantung.place.View.Main.MainActivity;
@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Toolbar register_toolbar;
     private CircleImageView register_img_avatar;
     private TextView register_txt_change_avatar, register_action_register;
-    private TextInputEditText register_edit_username, register_edit_passowrd, register_edit_repassword;
+    private TextInputEditText register_edit_username, register_edit_passowrd, register_edit_repassword, register_name;
     private ProgressDialog progressDialog;
 
     private PrescenterLogicRegister prescenterLogicRegister;
@@ -66,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register_edit_username     = findViewById(R.id.register_edit_username);
         register_edit_passowrd     = findViewById(R.id.register_edit_passowrd);
         register_edit_repassword   = findViewById(R.id.register_edit_repassword);
+        register_name              = findViewById(R.id.register_name);
     }
 
     private void addEvents() {
@@ -157,6 +158,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register_edit_repassword.setError(getResources().getString(R.string.repassword_false));
     }
 
+    @Override
+    public void requestName() {
+        register_name.setError(getResources().getString(R.string.requesting_name_error));
+    }
+
     //các điều kiện đều thỏa mãn thì cho phép đăng ký
     @Override
     public void register() {
@@ -166,7 +172,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         String encode_imae = Base64.encodeToString(bytes, Base64.DEFAULT);
 
-        prescenterLogicRegister.registerUser(register_edit_username.getText().toString(),
+        prescenterLogicRegister.registerUser(register_name.getText().toString(), register_edit_username.getText().toString(),
                 register_edit_passowrd.getText().toString(),
                 encode_imae);
     }
@@ -204,11 +210,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     //hàm đăng nhập thành công
     @Override
-    public void loginSuccess(UserPlaceModel userModel) {
-        Common.ID_USER_PLACE = Integer.parseInt(userModel.getIdNguoiDung());
-        Common.USER_NAME_PLACE = userModel.getTenDangNhap();
-        Common.PASSWORD_PLACE = userModel.getMatKhau();
-        Common.AVATAR_PLACE = userModel.getAvatar();
+    public void loginSuccess(UserModel userModel) {
+        Common.USER = userModel;
         Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
         Intent iHome = new Intent(this, MainActivity.class);
         startActivity(iHome);
@@ -231,7 +234,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.register_action_register:
                 showProgressbarDialog(Common.REGISTER);
-                prescenterLogicRegister.checkFormRegister(register_edit_passowrd.getText().toString(),
+                prescenterLogicRegister.checkFormRegister(register_name.getText().toString(),
+                        register_edit_passowrd.getText().toString(),
                         register_edit_repassword.getText().toString(), uri_image);
                 break;
         }

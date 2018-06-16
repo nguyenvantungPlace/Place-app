@@ -2,7 +2,7 @@ package com.example.nguyenvantung.place.Retrofit;
 
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
-import com.example.nguyenvantung.place.Model.ObjectModel.UserPlaceModel;
+import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -23,6 +23,7 @@ public interface DataClient {
     @POST(Common.BASE_API_PHP)
     Call<CheckTrueFalse> register(@Field(Common.CONTROLLER) String controller,
                                   @Field(Common.ACTION) String action,
+                                  @Field(Common.REQUEST_SERVER_NAME) String name,
                                   @Field(Common.REQUEST_SERVER_USER_NAME) String user_name,
                                   @Field(Common.REQUEST_SERVER_PASSWORD) String password,
                                   @Field(Common.REQUSET_SERVER_IMAGE_NAME) String image_name,
@@ -30,9 +31,9 @@ public interface DataClient {
 
     @FormUrlEncoded
     @POST(Common.BASE_API_PHP)
-    Call<UserPlaceModel> loginPlace(@Field(Common.CONTROLLER) String controller,
-                                    @Field(Common.ACTION) String action,
-                                    @Field(Common.REQUEST_SERVER_USER_NAME) String user_name,
-                                    @Field(Common.REQUEST_SERVER_PASSWORD) String password);
+    Call<UserModel> loginPlace(@Field(Common.CONTROLLER) String controller,
+                               @Field(Common.ACTION) String action,
+                               @Field(Common.REQUEST_SERVER_USER_NAME) String user_name,
+                               @Field(Common.REQUEST_SERVER_PASSWORD) String password);
 
 }
