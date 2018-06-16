@@ -26,4 +26,8 @@
     <string name="notification">Notification</string>
     <string name="name">Tên</string>
     <string name="requesting_name_error">Bạn cần nhập tên hiển thị</string>
+    <string name="description">Description</string>
+    <string name="input_description">Viết chú thích</string>
+    <string name="where_are_you">Bạn đang ở đâu:</string>
+    <string name="search">Tìm kiếm</string>
 </resources>

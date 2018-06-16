@@ -37,6 +37,9 @@ public class Common {
     public static final String REQUSET_SERVER_IMAGE_NAME = "image_name";
     public static final String REQUEST_SERVER_NAME = "name";
 
+    //SharePrefer
+    public static final String IMAGEUPLOAD = "image_upload";
+
     // info login place
     public static UserModel USER = new UserModel();
 
