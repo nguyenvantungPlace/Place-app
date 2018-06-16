@@ -47,12 +47,12 @@ public class UserFragment extends Fragment {
     }
 
     private void initData() {
-        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + Common.AVATAR_PLACE)
+        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + Common.USER.getAvatar())
                 .resize(350, 350)
                 .centerCrop()
                 .into(user_img_avatar);
 
-        user_txt_user_name.setText(Common.USER_NAME_PLACE);
+        user_txt_user_name.setText(Common.USER.getTenNguoiDung());
     }
 
     private void addEvents() {

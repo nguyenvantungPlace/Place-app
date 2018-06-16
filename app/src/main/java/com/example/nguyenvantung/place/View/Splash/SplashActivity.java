@@ -1,8 +1,8 @@
 package com.example.nguyenvantung.place.View.Splash;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -35,15 +35,15 @@ public class SplashActivity extends AppCompatActivity {
 
     private void checkLogin() {
         Common.LOGIN_SHAREPREFERENCES = getSharedPreferences("LOGIN", MODE_PRIVATE);
-        Common.TOKEN_FACEBOOK = Common.LOGIN_SHAREPREFERENCES.getString("TOKENFACEBOOK", "");
-        Common.USER_NAME_PLACE = Common.LOGIN_SHAREPREFERENCES.getString("USER_NAME_PLACE", "");
-        Common.PASSWORD_PLACE = Common.LOGIN_SHAREPREFERENCES.getString("PASSWORD_PLACE", "");
+//        Common.USER.set = Common.LOGIN_SHAREPREFERENCES.getString("TOKENFACEBOOK", "");
+        Common.USER.setTenDangNhap(Common.LOGIN_SHAREPREFERENCES.getString("USER_NAME_PLACE", ""));
+        Common.USER.setMatKhau(Common.LOGIN_SHAREPREFERENCES.getString("PASSWORD_PLACE", ""));
 
-        if (Common.TOKEN_FACEBOOK.equals("") && Common.USER_NAME_PLACE.equals("")){
+        if (Common.USER.getTenDangNhap().equals("")){
             nextActivity(LoginActivity.class);
-        }else if (!Common.USER_NAME_PLACE.equals("")){
+//        }else if (!Common.USER_NAME_PLACE.equals("")){
             //login place
-        }else if (!Common.TOKEN_FACEBOOK.equals("")){
+//        }else if (!Common.TOKEN_FACEBOOK.equals("")){
             //login token facebook
         }
     }

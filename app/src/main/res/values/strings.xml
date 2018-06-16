@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Place</string>
     <string name="Search">Tìm kiếm</string>
+    <string name="take_picture">Take picture</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -20,4 +21,9 @@
     <string name="requesting_to_server">Đang gửi yêu cầu lên server, vui lòng chờ</string>
     <string name="login_fail_username">Có thể bạn sai tên đăng nhập</string>
     <string name="login_fail_password">Có thể bạn sai mật khẩu</string>
+    <string name="home">Home</string>
+    <string name="upload">Upload</string>
+    <string name="notification">Notification</string>
+    <string name="name">Tên</string>
+    <string name="requesting_name_error">Bạn cần nhập tên hiển thị</string>
 </resources>

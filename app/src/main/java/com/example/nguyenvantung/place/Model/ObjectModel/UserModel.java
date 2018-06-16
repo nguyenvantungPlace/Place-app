@@ -3,13 +3,14 @@ package com.example.nguyenvantung.place.Model.ObjectModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.sql.Date;
-
-public class UserPlaceModel {
+public class UserModel {
 
     @SerializedName("id_nguoi_dung")
     @Expose
     private String idNguoiDung;
+    @SerializedName("ten_nguoi_dung")
+    @Expose
+    private String tenNguoiDung;
     @SerializedName("ten_dang_nhap")
     @Expose
     private String tenDangNhap;
@@ -26,6 +27,14 @@ public class UserPlaceModel {
 
     public void setIdNguoiDung(String idNguoiDung) {
         this.idNguoiDung = idNguoiDung;
+    }
+
+    public String getTenNguoiDung() {
+        return tenNguoiDung;
+    }
+
+    public void setTenNguoiDung(String tenNguoiDung) {
+        this.tenNguoiDung = tenNguoiDung;
     }
 
     public String getTenDangNhap() {

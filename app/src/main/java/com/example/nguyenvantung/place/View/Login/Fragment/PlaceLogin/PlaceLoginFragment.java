@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.nguyenvantung.place.Common.Common;
-import com.example.nguyenvantung.place.Model.ObjectModel.UserPlaceModel;
+import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 import com.example.nguyenvantung.place.Prescenter.Login.PlaceLogin.PrescenterLogicLoginPlace;
 import com.example.nguyenvantung.place.R;
 import com.example.nguyenvantung.place.View.Main.MainActivity;
@@ -31,7 +31,7 @@ public class PlaceLoginFragment extends Fragment implements View.OnClickListener
     private ProgressDialog progressDialog;
 
     private PrescenterLogicLoginPlace prescenterLogicLoginPlace;
-    private UserPlaceModel userPlaceModel;
+    private UserModel userPlaceModel;
 
     public PlaceLoginFragment() {
         // Required empty public constructor
@@ -74,12 +74,9 @@ public class PlaceLoginFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void loginSuccess(UserPlaceModel userPlaceModel) {
+    public void loginSuccess(UserModel userModel) {
         this.userPlaceModel = userPlaceModel;
-        Common.ID_USER_PLACE = Integer.parseInt(userPlaceModel.getIdNguoiDung());
-        Common.USER_NAME_PLACE = userPlaceModel.getTenDangNhap();
-        Common.PASSWORD_PLACE = userPlaceModel.getMatKhau();
-        Common.AVATAR_PLACE = userPlaceModel.getAvatar();
+        Common.USER = userModel;
         Intent iHome = new Intent(getActivity(), MainActivity.class);
         startActivity(iHome);
     }
