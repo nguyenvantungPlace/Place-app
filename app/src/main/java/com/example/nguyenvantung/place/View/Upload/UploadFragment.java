@@ -3,6 +3,7 @@ package com.example.nguyenvantung.place.View.Upload;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import com.example.nguyenvantung.place.Adapter.Upload.UploadRecyclerviewAdapter;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectClass.LoadMore;
 import com.example.nguyenvantung.place.R;
+import com.example.nguyenvantung.place.View.AddBody.AddBodyUploadActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,7 +122,10 @@ public class UploadFragment extends Fragment implements ViewUploadFragment {
 
     @Override
     public void imageClick(int possition) {
-        Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
+        Intent iAddBody = new Intent(getActivity(), AddBodyUploadActivity.class);
+        iAddBody.putExtra(Common.IMAGEUPLOAD, listImage.get(possition));
+        startActivity(iAddBody);
     }
 
     @Override
