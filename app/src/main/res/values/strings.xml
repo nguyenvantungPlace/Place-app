@@ -30,4 +30,6 @@
     <string name="input_description">Viết chú thích</string>
     <string name="where_are_you">Bạn đang ở đâu:</string>
     <string name="search">Tìm kiếm</string>
+    <string name="post">Post</string>
+    <string name="posting">Đăng upload</string>
 </resources>

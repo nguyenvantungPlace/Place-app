@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Common.Common;
+import com.example.nguyenvantung.place.Model.Convert.Converter;
 import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 import com.example.nguyenvantung.place.Prescenter.Register.PrescenterLogicRegister;
 import com.example.nguyenvantung.place.R;
@@ -166,15 +167,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     //các điều kiện đều thỏa mãn thì cho phép đăng ký
     @Override
     public void register() {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-        byte[] bytes = byteArrayOutputStream.toByteArray();
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+//        byte[] bytes = byteArrayOutputStream.toByteArray();
+//
+//        String encode_imae = Base64.encodeToString(bytes, Base64.DEFAULT);
 
-        String encode_imae = Base64.encodeToString(bytes, Base64.DEFAULT);
-
-        prescenterLogicRegister.registerUser(register_name.getText().toString(), register_edit_username.getText().toString(),
+        prescenterLogicRegister.registerUser(register_name.getText().toString(),
+                register_edit_username.getText().toString(),
                 register_edit_passowrd.getText().toString(),
-                encode_imae);
+                new Converter().ConverImageToBase64(bitmapImage));
     }
 
     //hàm đăng ký thành công
