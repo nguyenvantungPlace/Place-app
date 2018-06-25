@@ -16,6 +16,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,9 +63,10 @@ public class UploadFragment extends Fragment implements ViewUploadFragment, View
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_upload, container, false);
 
-
+        String orderBy = MediaStore.Images.Media.DATE_TAKEN;
+        String[] projection = {MediaStore.MediaColumns.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
         contentResolver = getActivity().getContentResolver();
-        cursor = contentResolver.query(URI_IMAGE, null, null, null, null);
+        cursor = contentResolver.query(URI_IMAGE, projection, null, null, orderBy + " DESC");
         cursor.moveToFirst();
 
         addControls();
@@ -106,7 +108,8 @@ public class UploadFragment extends Fragment implements ViewUploadFragment, View
     private void addData() {
         //&& ITEM < COUNT_ITEM
         while (!cursor.isAfterLast() && ITEM < COUNT_ITEM){
-                String duongDanHinhAnh = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+                String duongDanHinhAnh = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA));
+                Log.d("duongdan", duongDanHinhAnh);
                 listImage.add(duongDanHinhAnh);
                 cursor.moveToNext();
                 ITEM++;
@@ -128,6 +131,7 @@ public class UploadFragment extends Fragment implements ViewUploadFragment, View
     @Override
     public void imageClick(int possition) {
 //        Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
+        Log.d("kiemtra", listImage.get(possition));
         Intent iAddBody = new Intent(getActivity(), AddBodyUploadActivity.class);
         iAddBody.putExtra(Common.IMAGE_UPLOAD_URI, listImage.get(possition));
         startActivity(iAddBody);
