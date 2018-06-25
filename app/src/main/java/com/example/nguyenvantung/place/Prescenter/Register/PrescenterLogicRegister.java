@@ -66,7 +66,7 @@ public class PrescenterLogicRegister implements IPrescenterRegister {
 
     @Override
     public void registerUser(String name, String user_name, String password, String image_base64) {
-        String image_name = "IMG_PLACE_" + System.currentTimeMillis() + ".JPEG";
+        String image_name = "IMG_PLACE_" + System.currentTimeMillis() + ".jpg";
         Call<CheckTrueFalse> callback = dataClient.register(Common.CONTROLLER_USER,
                 Common.ACTION_REGISTER_PLACE, name, user_name,password,image_name,image_base64);
 

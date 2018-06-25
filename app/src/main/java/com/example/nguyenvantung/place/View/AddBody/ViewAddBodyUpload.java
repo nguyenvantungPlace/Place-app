@@ -4,4 +4,5 @@ public interface ViewAddBodyUpload {
     void uploadSuccess();
     void uploadFail();
     void errorTxtPlace();
+    void uploadImageSucces(String imageName);
 }

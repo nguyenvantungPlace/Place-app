@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -112,6 +113,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             try {
                 register_txt_change_avatar.setTextColor(getResources().getColor(R.color.blue_secondary));
                 uri_image = data.getData().toString();
+                Log.d("kiemtra", uri_image);
                 bitmapImage = BitmapFactory.decodeStream(getContentResolver().openInputStream(data.getData()));
                 register_img_avatar.setImageBitmap(bitmapImage);
             } catch (FileNotFoundException e) {
