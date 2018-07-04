@@ -1,7 +1,9 @@
 package com.example.nguyenvantung.place.Retrofit;
 
 import com.example.nguyenvantung.place.Common.Common;
+import com.example.nguyenvantung.place.Model.ObjectModel.AvatarUserCommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
+import com.example.nguyenvantung.place.Model.ObjectModel.CountModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.UploadObject;
 import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
@@ -74,4 +76,42 @@ public interface DataClient {
     Call<List<NewfeedModel>> getPost(@Field(Common.CONTROLLER) String controller,
                                     @Field(Common.ACTION) String action,
                                     @Field(Common.REQUEST_SERVER_LIMIT) int limit);
+
+    //lấy avatar người dùng comment
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<AvatarUserCommentModel>> getAvatarUserComment(@Field(Common.CONTROLLER) String controller,
+                                                      @Field(Common.ACTION) String action,
+                                                      @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
+
+    //kiểm tra xem người dùng đã like bài đăng hay chưa
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> checkLike(@Field(Common.CONTROLLER) String controller,
+                                   @Field(Common.ACTION) String action,
+                                   @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                   @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
+
+    //like bài đăng
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> likePost(@Field(Common.CONTROLLER) String controller,
+                                  @Field(Common.ACTION) String action,
+                                  @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                  @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
+
+    //bỏ thích bài đăng
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> unLikePost(@Field(Common.CONTROLLER) String controller,
+                                    @Field(Common.ACTION) String action,
+                                    @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                    @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
+
+    //get count like
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CountModel> getCountLike(@Field(Common.CONTROLLER) String controller,
+                                  @Field(Common.ACTION) String action,
+                                  @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
 }

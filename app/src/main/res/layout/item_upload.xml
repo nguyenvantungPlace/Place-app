@@ -12,7 +12,7 @@
 
         <ImageView
             android:id="@+id/item_upload_image"
-            android:scaleType="center"
+            android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

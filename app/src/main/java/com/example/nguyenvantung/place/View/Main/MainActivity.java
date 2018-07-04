@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         main_bottom_nav = findViewById(R.id.main_bottom_nav);
         main_bottom_nav.setSelectedItemId(R.id.menu_bottom_nav_home);
         nextFragment(new HomeFragment());
-
     }//end khởi tạo control
 
 
@@ -79,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 nextFragment(new UserFragment());
                 return true;
         }
-
         return false;
     }//end sự kiện khi click vào item của bottom navigation
 }

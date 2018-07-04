@@ -32,4 +32,5 @@
     <string name="search">Tìm kiếm</string>
     <string name="post">Post</string>
     <string name="posting">Đăng upload</string>
+    <string name="count_like">Lượt thích</string>
 </resources>

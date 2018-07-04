@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ViewNewfeedFragment {
     void addDataRecyclerview(List<NewfeedModel> newfeedModelList);
+    void getData();
 }
