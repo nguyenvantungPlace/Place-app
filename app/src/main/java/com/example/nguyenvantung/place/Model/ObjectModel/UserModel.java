@@ -7,7 +7,7 @@ public class UserModel {
 
     @SerializedName("id_nguoi_dung")
     @Expose
-    private String idNguoiDung;
+    private int idNguoiDung;
     @SerializedName("ten_nguoi_dung")
     @Expose
     private String tenNguoiDung;
@@ -21,11 +21,11 @@ public class UserModel {
     @Expose
     private String avatar;
 
-    public String getIdNguoiDung() {
+    public int getIdNguoiDung() {
         return idNguoiDung;
     }
 
-    public void setIdNguoiDung(String idNguoiDung) {
+    public void setIdNguoiDung(int idNguoiDung) {
         this.idNguoiDung = idNguoiDung;
     }
 

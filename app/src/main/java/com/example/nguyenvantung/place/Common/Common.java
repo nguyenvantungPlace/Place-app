@@ -3,13 +3,19 @@ package com.example.nguyenvantung.place.Common;
 import android.content.SharedPreferences;
 import android.os.Parcelable;
 
+import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
+import com.example.nguyenvantung.place.Retrofit.DataClient;
 
 import java.util.Date;
 
 public class Common {
+    //Retrofit
+    public static DataClient DATA_CLIENT = null;
+
     //server
-    public static final String HOST = "http://192.168.1.5/";
+//    public static final String HOST = "127.0.0.1/"; //host nox
+    public static final String HOST = "http://192.168.1.12/";
     public static final String BASE_URL = HOST + "place/";
     public static final String BASE_URL_USER_AVATAR_PLACE = BASE_URL + "public/image/avatar/place/";
     public static final String BASE_URL_USER_IMAGE_POST = BASE_URL + "public/image/post/";
@@ -19,6 +25,13 @@ public class Common {
     //
     public static final String LOGIN = "Đăng nhập";
     public static final String REGISTER = "Đăng ký";
+
+    //name Intent
+    public static final String NEWFEEDMODEL_INTENT = "POSTNEWFEED";
+    public static final String INTENT_NOIDUNG_NEWFEED = "NOIDUNG";
+    public static final String INTENT_ID_DIA_CHI_NEWFEED = "IDDIACHI";
+    public static final String INTENT_ANH_NEWFEED = "ANHNEWFEED";
+    public static final String INTENT_ID_POST = "ID_POST";
 
     //request code
     public static final int REQUEST_CODE_SELECT_IMAGE = 0;
@@ -47,6 +60,9 @@ public class Common {
     public static final String ACTION_INSERT_LIKE = "insertLike";
     public static final String ACTION_UN_LIKE = "unLike";
     public static final String ACTION_COUNT_LIKE = "countLike";
+    public static final String ACTION_GET_POST_FROM_ID_USER = "getPostFromIDUser";
+    public static final String ACTION_EDIT_POST = "editPost";
+    public static final String ACTION_GET_INFO_USER_FROM_ID = "getInfoUserFromID";
 
     //request method Post
     public static final String REQUEST_SERVER_USER_NAME = "user_name";
@@ -71,5 +87,5 @@ public class Common {
     public static UserModel USER = new UserModel();
 
     public static SharedPreferences LOGIN_SHAREPREFERENCES;
-    public static Parcelable STATE;
+    public static NewfeedModel NEWFEEDEDIT;
 }

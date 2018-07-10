@@ -33,4 +33,6 @@
     <string name="post">Post</string>
     <string name="posting">Đăng upload</string>
     <string name="count_like">Lượt thích</string>
+    <string name="send">Gửi</string>
+    <string name="add_comment">viết bình luận...</string>
 </resources>

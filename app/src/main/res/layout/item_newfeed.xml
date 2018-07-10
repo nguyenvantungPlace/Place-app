@@ -26,14 +26,29 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
+                android:layout_weight="8"
                 android:id="@+id/item_newfeed_txt_username"
                 android:text="Ten nguoi dung"
                 android:layout_marginLeft="@dimen/margin_8"
                 android:layout_marginRight="@dimen/margin_8"
                 android:textColor="@color/colorBlack"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:layout_gravity="center_vertical"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/item_newfeed_more"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_more_vert_black_24dp"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <TextView
@@ -108,6 +123,39 @@
 
             </android.support.v7.widget.RecyclerView>
         </RelativeLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/item_newfeed_img_avatar_user_comment"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+            <EditText
+                android:id="@+id/item_newfeed_ed_comment"
+                android:textSize="12sp"
+                android:hint="@string/add_comment"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="8"
+                android:backgroundTint="#00ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/item_newfeed_tv_click_comment"
+                android:gravity="center"
+                android:focusable="true"
+                android:clickable="true"
+                android:visibility="gone"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textColor="@color/blue_secondary"
+                android:text="@string/send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

@@ -27,8 +27,8 @@ public class PrescenterLogicLoginPlace implements PerscenterIMPLoginPlace{
         callback.enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
-                if (!response.body().getIdNguoiDung().equals("")) {
-                    if (Integer.parseInt(response.body().getIdNguoiDung()) != 0)
+                if (response.body().getIdNguoiDung() != 0) {
+                    if (response.body().getIdNguoiDung() != 0)
                         viewPlaceLoginFragment.loginSuccess(response.body());
                 }else viewPlaceLoginFragment.loginFail();
             }
