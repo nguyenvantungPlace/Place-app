@@ -16,9 +16,6 @@ public class NewfeedModel {
     @SerializedName("anh")
     @Expose
     private String anh;
-    @SerializedName("anh_nguoi_dung")
-    @Expose
-    private String anh_nguoi_dung;
     @SerializedName("noi_dung")
     @Expose
     private String noiDung;
@@ -72,13 +69,5 @@ public class NewfeedModel {
 
     public void setNgayGioDang(String ngayGioDang) {
         this.ngayGioDang = ngayGioDang;
-    }
-
-    public String getAnh_nguoi_dung() {
-        return anh_nguoi_dung;
-    }
-
-    public void setAnh_nguoi_dung(String anh_nguoi_dung) {
-        this.anh_nguoi_dung = anh_nguoi_dung;
     }
 }

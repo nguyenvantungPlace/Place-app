@@ -91,7 +91,7 @@ public class PrescenterLogicRegister implements IPrescenterRegister {
         callback.enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {
-                if (Integer.parseInt(response.body().getIdNguoiDung()) > 0) viewRegisterActivity.loginSuccess(response.body());
+                if (response.body().getIdNguoiDung() > 0) viewRegisterActivity.loginSuccess(response.body());
                 else viewRegisterActivity.loginFail();
             }
 

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.R;
+import com.example.nguyenvantung.place.Retrofit.APIUtils;
 import com.example.nguyenvantung.place.View.Login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        Common.DATA_CLIENT = APIUtils.getData();
         addControls();
         checkLogin();
         addAnimation();

@@ -64,7 +64,7 @@ public interface DataClient {
     @POST(Common.BASE_API_PHP)
     Call<CheckTrueFalse> UploadPost(@Field(Common.CONTROLLER) String controller,
                                     @Field(Common.ACTION) String action,
-                                    @Field(Common.REQUEST_SERVER_ID_USER) String id_nguoi_dung,
+                                    @Field(Common.REQUEST_SERVER_ID_USER) int id_nguoi_dung,
                                     @Field(Common.REQUEST_SERVER_ID_PLACE) String id_dia_diem,
                                     @Field(Common.REQUEST_SERVER_DESCRIPTION) String noi_dung,
                                     @Field(Common.REQUEST_SERVER_IMAGE_NAME) String imageName,
@@ -114,4 +114,29 @@ public interface DataClient {
     Call<CountModel> getCountLike(@Field(Common.CONTROLLER) String controller,
                                   @Field(Common.ACTION) String action,
                                   @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
+
+    //get all post from
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<NewfeedModel>> getPostFromUDUser(@Field(Common.CONTROLLER) String controller,
+                                         @Field(Common.ACTION) String action,
+                                         @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                         @Field(Common.REQUEST_SERVER_LIMIT) int limit);
+
+    //edit bài đăng
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> editPostEdited (@Field(Common.CONTROLLER) String controller,
+                                         @Field(Common.ACTION) String action,
+                                         @Field(Common.REQUEST_SERVER_ID_POST) int id_post,
+                                         @Field(Common.REQUEST_SERVER_ID_PLACE) int id_dia_diem,
+                                         @Field(Common.REQUEST_SERVER_DESCRIPTION) String noi_dung,
+                                         @Field(Common.REQUEST_SERVER_IMAGE_NAME) String imageName);
+
+    // lấy id người dùng, tên người dùng, avata người dùng trên bài post
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<UserModel> getUserInPostFromID(@Field(Common.CONTROLLER) String controller,
+                                        @Field(Common.ACTION) String action,
+                                        @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
 }

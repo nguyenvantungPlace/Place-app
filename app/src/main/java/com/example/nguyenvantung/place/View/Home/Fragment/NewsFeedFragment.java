@@ -1,6 +1,7 @@
 package com.example.nguyenvantung.place.View.Home.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -19,7 +20,9 @@ import com.example.nguyenvantung.place.Model.ObjectClass.LoadMore;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Prescenter.Newfeed.PrescenterLoginNewfeed;
 import com.example.nguyenvantung.place.R;
+import com.example.nguyenvantung.place.View.EditPost.EditPostActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +35,8 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
     private ProgressBar newsfeed_progressbar;
     private PrescenterLoginNewfeed prescenterLoginNewfeed;
 
-    private List<NewfeedModel> newfeedModelList;
-    private NewfeedRecyclerViewAdapter newfeedRecyclerViewAdapter;
+    private static List<NewfeedModel> newfeedModelList;
+    private static NewfeedRecyclerViewAdapter newfeedRecyclerViewAdapter;
     private int limit = 0;
 
 
@@ -90,5 +93,30 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
         limit += 5;
         Log.d("kiemtra", "limit: " + limit);
         prescenterLoginNewfeed.getPost(limit);
+    }
+
+
+    @Override
+    public void nextPageEditPost(NewfeedModel newfeedModel, int possition) {
+        Intent iEditPost = new Intent(getContext(), EditPostActivity.class);
+        iEditPost.putExtra("POSSITIONEDIT", newfeedModel.getNoiDung());
+        Common.NEWFEEDEDIT = newfeedModel;
+        startActivity(iEditPost);
+    }
+
+    @Override
+    public void hidePost(int possition) {
+        newfeedModelList.remove(possition);
+        newfeedRecyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void nextPageComment(int possion) {
+
+    }
+
+    public void changePostEdited(int postion){
+        newfeedModelList.set(postion, Common.NEWFEEDEDIT);
+        newfeedRecyclerViewAdapter.notifyDataSetChanged();
     }
 }

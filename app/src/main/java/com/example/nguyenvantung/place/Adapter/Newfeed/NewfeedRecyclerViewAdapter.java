@@ -42,17 +42,17 @@ public class NewfeedRecyclerViewAdapter extends RecyclerView.Adapter<NewfeedView
 
     @Override
     public void onBindViewHolder(@NonNull final NewfeedViewHolder holder, int position) {
-        holder.addDataID(Integer.parseInt(Common.USER.getIdNguoiDung()),
-                Integer.parseInt(newfeedModelList.get(position).getIdBaiDang()));
-
-        holder.item_newfeed_txt_username.setText(newfeedModelList.get(position).getIdNguoiDung());
-        holder.item_newfeed_txt_description.setText(newfeedModelList.get(position).getNoiDung());
-        Picasso.get().load(Common.BASE_URL_USER_IMAGE_POST + newfeedModelList.get(position).getAnh())
-                .into(holder.item_newfeed_img_post);
-        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + newfeedModelList.get(position).getAnh_nguoi_dung())
-                .into(holder.item_newfeed_img_avatar_user);
-
-
+        holder.initData(newfeedModelList.get(position));
+//        holder.addDataID(Integer.parseInt(Common.USER.getIdNguoiDung()),
+//                Integer.parseInt(newfeedModelList.get(position).getIdBaiDang()));
+//        holder.InitModelNewfeed(newfeedModelList.get(position));
+//
+//        holder.item_newfeed_txt_username.setText(newfeedModelList.get(position).getIdNguoiDung());
+//        holder.item_newfeed_txt_description.setText(newfeedModelList.get(position).getNoiDung());
+//        Picasso.get().load(Common.BASE_URL_USER_IMAGE_POST + newfeedModelList.get(position).getAnh())
+//                .into(holder.item_newfeed_img_post);
+//        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + newfeedModelList.get(position).getAnh_nguoi_dung())
+//                .into(holder.item_newfeed_img_avatar_user);
 
     }
 

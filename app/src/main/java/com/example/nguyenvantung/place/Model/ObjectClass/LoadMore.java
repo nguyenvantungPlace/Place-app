@@ -7,12 +7,14 @@ import android.util.Log;
 
 import com.example.nguyenvantung.place.View.Home.Fragment.ViewNewfeedFragment;
 import com.example.nguyenvantung.place.View.Upload.ViewUploadFragment;
+import com.example.nguyenvantung.place.View.User.ViewUserFragment;
 
 public class LoadMore extends RecyclerView.OnScrollListener {
     RecyclerView.LayoutManager layoutManager;
 
     private ViewUploadFragment viewUploadFragment;
     private ViewNewfeedFragment viewNewfeedFragment;
+    private ViewUserFragment viewUserFragment;
     private int check = 0;
 
     public LoadMore(RecyclerView.LayoutManager layoutManager, ViewUploadFragment viewUploadFragment){
@@ -23,6 +25,11 @@ public class LoadMore extends RecyclerView.OnScrollListener {
     public LoadMore(RecyclerView.LayoutManager layoutManager, ViewNewfeedFragment viewNewfeedFragment){
         this.layoutManager = layoutManager;
         this.viewNewfeedFragment = viewNewfeedFragment;
+    }
+
+    public LoadMore(RecyclerView.LayoutManager layoutManager, ViewUserFragment viewUserFragment){
+        this.layoutManager = layoutManager;
+        this.viewUserFragment = viewUserFragment;
     }
 
     //su kien da duoc scroll
@@ -43,6 +50,12 @@ public class LoadMore extends RecyclerView.OnScrollListener {
             if (((GridLayoutManager) layoutManager).findLastVisibleItemPosition()
                     == (layoutManager.getItemCount() - 7)){
                 viewUploadFragment.addDataLoadMore();
+            }
+        }
+        if (layoutManager instanceof  GridLayoutManager && viewUserFragment != null){
+            if (((GridLayoutManager) layoutManager).findLastVisibleItemPosition()
+                    == (layoutManager.getItemCount() - 7)){
+                viewUserFragment.addDataLoadMore();
             }
         }
 
