@@ -20,6 +20,7 @@ import com.example.nguyenvantung.place.Model.ObjectClass.LoadMore;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Prescenter.Newfeed.PrescenterLoginNewfeed;
 import com.example.nguyenvantung.place.R;
+import com.example.nguyenvantung.place.View.Comment.CommentActivity;
 import com.example.nguyenvantung.place.View.EditPost.EditPostActivity;
 
 import java.io.Serializable;
@@ -111,9 +112,12 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
     }
 
     @Override
-    public void nextPageComment(int possion) {
-
+    public void nextPageComment(NewfeedModel post) {
+        Intent iComment = new Intent(getContext(), CommentActivity.class);
+        iComment.putExtra(Common.INTENT_ID_POST, post);
+        startActivity(iComment);
     }
+
 
     public void changePostEdited(int postion){
         newfeedModelList.set(postion, Common.NEWFEEDEDIT);

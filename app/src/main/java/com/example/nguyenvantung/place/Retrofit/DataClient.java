@@ -3,6 +3,7 @@ package com.example.nguyenvantung.place.Retrofit;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.AvatarUserCommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
+import com.example.nguyenvantung.place.Model.ObjectModel.CommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CountModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.UploadObject;
@@ -136,7 +137,39 @@ public interface DataClient {
     // lấy id người dùng, tên người dùng, avata người dùng trên bài post
     @FormUrlEncoded
     @POST(Common.BASE_API_PHP)
-    Call<UserModel> getUserInPostFromID(@Field(Common.CONTROLLER) String controller,
-                                        @Field(Common.ACTION) String action,
-                                        @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+    Call<UserModel> getUserFromIDUser(@Field(Common.CONTROLLER) String controller,
+                                      @Field(Common.ACTION) String action,
+                                      @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+
+    //lấy tất cả comment từ id bài dăng
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<CommentModel>> getAllCommentFromIDPost(@Field(Common.CONTROLLER) String controller,
+                                               @Field(Common.ACTION) String action,
+                                               @Field(Common.REQUEST_SERVER_ID_POST) int id_post);
+
+    //binh luan bai dang
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> insertComment(@Field(Common.CONTROLLER) String controller,
+                                       @Field(Common.ACTION) String action,
+                                       @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                       @Field(Common.REQUEST_SERVER_ID_POST) int id_post,
+                                       @Field(Common.REQUEST_SERVER_DESCRIPTION) String noi_dung,
+                                       @Field(Common.REQUEST_SERVER_TIME_COMMENT) String time);
+
+    //sửa bình luận
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> editComment (@Field(Common.CONTROLLER) String controller,
+                                      @Field(Common.ACTION) String action,
+                                      @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment,
+                                      @Field(Common.REQUEST_SERVER_DESCRIPTION) String noi_dung);
+
+    //xóa bình luận
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> deleteComment(@Field(Common.CONTROLLER) String controller,
+                                       @Field(Common.ACTION) String action,
+                                       @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment);
 }

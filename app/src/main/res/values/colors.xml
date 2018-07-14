@@ -7,4 +7,5 @@
     <color name="hint">#919389</color>
     <color name="blue_secondary">#3949ab</color>
     <color name="redcolor">#d50000</color>
+    <color name="commentGrey">#eeeeee</color>
 </resources>

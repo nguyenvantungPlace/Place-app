@@ -1,26 +1,20 @@
 package com.example.nguyenvantung.place.ViewHolder.Newfeed;
 
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.ListPopupWindow;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.nguyenvantung.place.Adapter.ContextMenuForItemRecyclerview.ContextMenuAdapter;
 import com.example.nguyenvantung.place.Adapter.Newfeed.AvatarUserCommentAdapter;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.AvatarUserCommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
-import com.example.nguyenvantung.place.Model.ObjectModel.ContextMenuForItemRecyclerviewModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CountModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
@@ -28,7 +22,8 @@ import com.example.nguyenvantung.place.R;
 import com.example.nguyenvantung.place.View.Home.Fragment.ViewNewfeedFragment;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -82,6 +77,7 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
         item_newfeed_more.setOnClickListener(this);
         item_newfeed_ed_comment.setOnFocusChangeListener(this);
         item_newfeed_tv_click_comment.setOnClickListener(this);
+        item_newfeed_tv_click_comment.setOnClickListener(this);
     }
 
     // đưa data từ adapter vào viewholder
@@ -114,7 +110,7 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
 
     //gán avatar người đăng
     private void setImageAndNameUser() {
-        Call<UserModel> callback = Common.DATA_CLIENT.getUserInPostFromID(Common.CONTROLLER_USER,
+        Call<UserModel> callback = Common.DATA_CLIENT.getUserFromIDUser(Common.CONTROLLER_USER,
                 Common.ACTION_GET_INFO_USER_FROM_ID, Integer.parseInt(postModel.getIdNguoiDung()));
         callback.enqueue(new Callback<UserModel>() {
             @Override
@@ -285,11 +281,36 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
 
     //chuyển page comment
     private void nextPageComment() {
-        viewNewfeedFragment.nextPageComment(getAdapterPosition());
+        viewNewfeedFragment.nextPageComment(postModel);
     }
 
     //comment bài đăng ngay trên item bài đăng
     private void commentInPost() {
+        String time = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+
+        Call<CheckTrueFalse> callback = Common.DATA_CLIENT.insertComment(Common.CONTROLLER_COMMENT,
+                Common.ACTION_INSERT_COMMENT, Common.USER.getIdNguoiDung(), Integer.parseInt(postModel.getIdBaiDang()),
+                item_newfeed_ed_comment.getText().toString(), time);
+
+        callback.enqueue(new Callback<CheckTrueFalse>() {
+            @Override
+            public void onResponse(Call<CheckTrueFalse> call, Response<CheckTrueFalse> response) {
+                if (response.body().getStatus().equals("true")) commentSucces();
+                else commentFail();
+            }
+
+            @Override
+            public void onFailure(Call<CheckTrueFalse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void commentSucces(){
+        item_newfeed_ed_comment.setText("");
+    }
+
+    private void commentFail(){
 
     }
 
