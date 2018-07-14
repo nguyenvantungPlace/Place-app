@@ -9,5 +9,5 @@ public interface ViewNewfeedFragment {
     void getData();
     void nextPageEditPost(NewfeedModel newfeedModel , int possition);
     void hidePost(int possition);
-    void nextPageComment(int possion);
+    void nextPageComment(NewfeedModel possion);
 }

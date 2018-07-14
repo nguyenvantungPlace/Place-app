@@ -29,7 +29,8 @@
         <activity android:name=".View.Login.LoginActivity" />
         <activity android:name=".View.Register.RegisterActivity" />
         <activity android:name=".View.AddBody.AddBodyUploadActivity" />
-        <activity android:name=".View.EditPost.EditPostActivity"></activity>
+        <activity android:name=".View.EditPost.EditPostActivity" />
+        <activity android:name=".View.Comment.CommentActivity"></activity>
     </application>
 
 </manifest>

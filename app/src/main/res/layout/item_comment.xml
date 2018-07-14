@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item_comment_layout"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:padding="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/item_comment_img_avatar"
+            android:layout_weight="1"
+            android:layout_width="36dp"
+            android:layout_height="36dp" />
+
+        <LinearLayout
+            android:layout_weight="8"
+            android:layout_marginLeft="8dp"
+            android:padding="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/background_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item_comment_username"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:focusable="true"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:text="ten nguyen van a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/item_comment_comment"
+                    android:layout_marginTop="8dp"
+                    android:text="binh luan"
+                    android:textSize="12sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/item_comment_ed_edit"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        android:hint="@string/add_comment"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="8"
+                        android:backgroundTint="#00ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/item_comment_txt_send_comment_edited"
+                        android:gravity="center"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:textColor="@color/blue_secondary"
+                        android:text="@string/send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/item_comment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="10sp"
+            android:text="23 phut truoc"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:padding="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/favorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        <ImageView
+            android:padding="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="24dp"
+            android:src="@drawable/ic_message_in_a_speech_bubble"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+    </LinearLayout>
+</LinearLayout>

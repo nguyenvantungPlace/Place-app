@@ -35,4 +35,10 @@
     <string name="count_like">Lượt thích</string>
     <string name="send">Gửi</string>
     <string name="add_comment">viết bình luận...</string>
+    <string name="comment">Bình luận</string>
+    <string name="coppy">Sao chép</string>
+    <string name="edit">Sửa</string>
+    <string name="cancel">hủy</string>
+    <string name="label">Copied Text</string>
+    <string name="delete">xóa</string>
 </resources>

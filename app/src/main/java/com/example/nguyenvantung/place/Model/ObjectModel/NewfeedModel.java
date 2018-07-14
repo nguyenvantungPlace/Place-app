@@ -3,7 +3,9 @@ package com.example.nguyenvantung.place.Model.ObjectModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class NewfeedModel {
+import java.io.Serializable;
+
+public class NewfeedModel implements Serializable{
     @SerializedName("id_bai_dang")
     @Expose
     private String idBaiDang;
