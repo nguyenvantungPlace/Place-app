@@ -47,6 +47,7 @@ public class Common {
     public static final String CONTROLLER_UPLOAD = "Upload";
     public static final String CONTROLLER_LIKE = "Like";
     public static final String CONTROLLER_COMMENT = "comment";
+    public static final String CONTROLLER_LIKE_COMMENT = "likeComment";
 
     //action
     public static final String ACTION = "a";
@@ -67,6 +68,10 @@ public class Common {
     public static final String ACTION_GET_ALL_COMMENT_FROM_ID_POST = "getAllCommentFromIDPost";
     public static final String ACTION_INSERT_COMMENT = "insertComment";
     public static final String ACTION_EDIT_COMMENT = "editComment";
+    public static final String ACTION_DELETE_COMMENT = "deleteComment";
+    public static final String ACTION_LIKE_COMMENT = "likeComment";
+    public static final String ACTION_CHECKLINE_COMMENT = "checkLike";
+    public static final String ACTION_UNLIKE_COMMENT = "unLikeComment";
 
     //request method Post
     public static final String REQUEST_SERVER_USER_NAME = "user_name";
