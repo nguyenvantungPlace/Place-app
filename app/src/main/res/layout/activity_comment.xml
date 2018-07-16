@@ -39,6 +39,7 @@
             </FrameLayout>
             <android.support.v7.widget.Toolbar
                 android:id="@+id/comment_toolbar"
+                android:clipChildren="true"
                 app:layout_collapseMode="pin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

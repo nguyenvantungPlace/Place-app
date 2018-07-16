@@ -172,4 +172,29 @@ public interface DataClient {
     Call<CheckTrueFalse> deleteComment(@Field(Common.CONTROLLER) String controller,
                                        @Field(Common.ACTION) String action,
                                        @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment);
+
+    //-----------------------thích bình luận-----------------------------
+    // Like bình luận
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> likeComment(@Field(Common.CONTROLLER) String controller,
+                                     @Field(Common.ACTION) String action,
+                                     @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment,
+                                     @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+
+    //check người dùng đã thích bình luận hay chưa
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> checkLikeComment(@Field(Common.CONTROLLER) String controller,
+                                          @Field(Common.ACTION) String action,
+                                          @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment,
+                                          @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+
+    //người dùng bỏ thích bình luận
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> unLikeComment(@Field(Common.CONTROLLER) String controller,
+                                          @Field(Common.ACTION) String action,
+                                          @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment,
+                                          @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
 }
