@@ -3,7 +3,9 @@ package com.example.nguyenvantung.place.Prescenter.User;
 import android.util.Log;
 
 import com.example.nguyenvantung.place.Common.Common;
+import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
+import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.Retrofit.APIUtils;
 import com.example.nguyenvantung.place.Retrofit.DataClient;
 import com.example.nguyenvantung.place.View.User.ViewUserFragment;
@@ -43,5 +45,43 @@ public class PrescenterLogicUser implements PrescenterIMPUser {
             }
         });
         return null;
+    }
+
+    @Override
+    public void checkPlaceInIDUser(int id_user) {
+        Call<CheckTrueFalse> callback = Common.DATA_CLIENT.checkPlace(Common.CONTROLLER_PLACE,
+                Common.ACTION_CHECK_PLACE_FROM_IDUSER, id_user);
+
+        callback.enqueue(new Callback<CheckTrueFalse>() {
+            @Override
+            public void onResponse(Call<CheckTrueFalse> call, Response<CheckTrueFalse> response) {
+                if (response.body().getStatus().equals("true")) viewUserFragment.checkPlaceTrue();
+                else viewUserFragment.checkPlaceFalse();
+            }
+
+            @Override
+            public void onFailure(Call<CheckTrueFalse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getDataPlace(int id_user, int limit) {
+        Call<List<PlaceModel>> callback = Common.DATA_CLIENT.getPlace(Common.CONTROLLER_PLACE,
+                Common.ACTION_GET_PLACE_FROM_IDUSER, id_user, limit);
+
+        callback.enqueue(new Callback<List<PlaceModel>>() {
+            @Override
+            public void onResponse(Call<List<PlaceModel>> call, Response<List<PlaceModel>> response) {
+                if (!response.body().isEmpty()) viewUserFragment.getDataPlaceSuccess(response.body());
+                else viewUserFragment.getDtaPlaceFail();
+            }
+
+            @Override
+            public void onFailure(Call<List<PlaceModel>> call, Throwable t) {
+                Log.d("kiemtra", "loi: " + t.getLocalizedMessage());
+            }
+        });
     }
 }

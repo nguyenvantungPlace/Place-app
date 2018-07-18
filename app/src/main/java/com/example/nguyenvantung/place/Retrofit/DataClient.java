@@ -6,6 +6,7 @@ import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
 import com.example.nguyenvantung.place.Model.ObjectModel.CommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CountModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
+import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.UploadObject;
 import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 
@@ -141,6 +142,7 @@ public interface DataClient {
                                       @Field(Common.ACTION) String action,
                                       @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
 
+    //--------------------------------- bình luận --------------------------------------------------
     //lấy tất cả comment từ id bài dăng
     @FormUrlEncoded
     @POST(Common.BASE_API_PHP)
@@ -173,7 +175,7 @@ public interface DataClient {
                                        @Field(Common.ACTION) String action,
                                        @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment);
 
-    //-----------------------thích bình luận-----------------------------
+    //-----------------------thích bình luận--------------------------------------------------------
     // Like bình luận
     @FormUrlEncoded
     @POST(Common.BASE_API_PHP)
@@ -197,4 +199,21 @@ public interface DataClient {
                                           @Field(Common.ACTION) String action,
                                           @Field(Common.REQUEST_SERVER_ID_COMMENT) int id_comment,
                                           @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+
+
+    //------------------------------ lấy bài đăng --------------------------------------------------
+    //lấy bài đăng và gán vào
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<PlaceModel>> getPlace(@Field(Common.CONTROLLER) String controller,
+                                    @Field(Common.ACTION) String action,
+                                    @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                    @Field(Common.REQUEST_SERVER_LIMIT) int limit);
+
+    //check xem người dùng có quản lí 1 địa điểm nào hay không
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> checkPlace(@Field(Common.CONTROLLER) String controller,
+                                    @Field(Common.ACTION) String action,
+                                    @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
 }
