@@ -15,7 +15,7 @@ public class Common {
 
     //server
 //    public static final String HOST = "127.0.0.1/"; //host nox
-    public static final String HOST = "http://192.168.1.6/";
+    public static final String HOST = "http://192.168.1.11/";
     public static final String BASE_URL = HOST + "place/";
     public static final String BASE_URL_USER_AVATAR_PLACE = BASE_URL + "public/image/avatar/place/";
     public static final String BASE_URL_USER_IMAGE_POST = BASE_URL + "public/image/post/";
@@ -40,7 +40,7 @@ public class Common {
     public static final int REQUEST_CODE_TAKE_IMAGE = 3;
     public static final int REQUEST_CODE_PERMISSION_CAMERA = 4;
 
-    //constroller
+    //controller
     public static final String CONTROLLER = "c";
     public static final String CONTROLLER_USER = "User";
     public static final String CONTROLLER_POST = "post";
@@ -48,6 +48,7 @@ public class Common {
     public static final String CONTROLLER_LIKE = "Like";
     public static final String CONTROLLER_COMMENT = "comment";
     public static final String CONTROLLER_LIKE_COMMENT = "likeComment";
+    public static final String CONTROLLER_PLACE = "Place";
 
     //action
     public static final String ACTION = "a";
@@ -72,6 +73,8 @@ public class Common {
     public static final String ACTION_LIKE_COMMENT = "likeComment";
     public static final String ACTION_CHECKLINE_COMMENT = "checkLike";
     public static final String ACTION_UNLIKE_COMMENT = "unLikeComment";
+    public static final String ACTION_CHECK_PLACE_FROM_IDUSER = "checkPlaceInIDUser";
+    public static final String ACTION_GET_PLACE_FROM_IDUSER = "getAllPlace";
 
     //request method Post
     public static final String REQUEST_SERVER_USER_NAME = "user_name";

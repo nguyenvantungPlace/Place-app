@@ -41,4 +41,5 @@
     <string name="cancel">hủy</string>
     <string name="label">Copied Text</string>
     <string name="delete">xóa</string>
+    <string name="control_place">Quản lí địa điểm</string>
 </resources>
