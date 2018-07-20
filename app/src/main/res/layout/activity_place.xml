@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Place.PlaceActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:paddingTop="8dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:elevation="8dp"
+                    android:paddingBottom="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/place_img_avatar"
+                        android:transitionName="shared_image_place"
+                        tools:layout_editor_absoluteX="115dp"
+                        tools:layout_editor_absoluteY="295dp"
+                        tools:ignore="MissingConstraints"
+                        android:src="@drawable/logo"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" />
+                    <ImageView
+                        android:id="@+id/place_img_more"
+                        android:transitionName="shared_img_more"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="8dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_more_vert_black_24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/place_txt_name"
+                        android:transitionName="shared_txt_name"
+                        android:text="day la ten dia diem"
+                        android:textSize="16sp"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_below="@+id/place_img_avatar"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:textColor="@color/colorBlack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="day la dia chi"
+                        android:textSize="12sp"
+                        android:layout_below="@+id/place_txt_name"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="8dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/favorite"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </FrameLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

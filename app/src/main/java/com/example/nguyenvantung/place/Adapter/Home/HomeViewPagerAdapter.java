@@ -17,9 +17,9 @@ public class HomeViewPagerAdapter extends FragmentPagerAdapter {
     public HomeViewPagerAdapter(FragmentManager fm) {
         super(fm);
         fragmentList = new ArrayList<>();
-        fragmentList.add(new CameraFragment());
+//        fragmentList.add(new CameraFragment());
         fragmentList.add(new NewsFeedFragment());
-        fragmentList.add(new ChatFragment());
+//        fragmentList.add(new ChatFragment());
     }
 
     @Override

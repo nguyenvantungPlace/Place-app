@@ -1,14 +1,25 @@
 package com.example.nguyenvantung.place.ViewHolder.User;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.R;
+import com.example.nguyenvantung.place.View.Place.PlaceActivity;
 import com.squareup.picasso.Picasso;
+import com.wonderkiln.blurkit.BlurKit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -16,13 +27,17 @@ public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View
     private View view;
     private CircleImageView item_place_avatar;
     private TextView item_place_name;
-    private LinearLayout item_place_layout;
+    private RelativeLayout item_place_layout;
+    private ImageView item_place_background, item_place_more;
 
     private PlaceModel placeModel;
+    private Activity activity;
 
-    public ListPlaceViewHolder(View itemView) {
+    public ListPlaceViewHolder(View itemView, Activity activity) {
         super(itemView);
         this.view = itemView;
+        this.activity = activity;
+//        BlurKit.init(view.getContext());
 
         addControlls();
         addEvents();
@@ -37,24 +52,40 @@ public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View
     private void addData() {
         item_place_name.setText(placeModel.getTenDiaDiem());
         Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar()).into(item_place_avatar);
+        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar()).into(item_place_background);
     }
 
     private void addControlls() {
         item_place_avatar = view.findViewById(R.id.item_place_avatar);
         item_place_name   = view.findViewById(R.id.item_place_name);
         item_place_layout = view.findViewById(R.id.item_place_layout);
+        item_place_background = view.findViewById(R.id.item_place_background);
+        item_place_more   = view.findViewById(R.id.item_place_more);
     }
 
     private void addEvents() {
         item_place_layout.setOnClickListener(this);
+        item_place_more.setOnClickListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.item_place_layout :
 
-            break;
+                Intent intent = new Intent(view.getContext(), PlaceActivity.class);
+                Pair[] pairs = new Pair[3];
+                pairs[0] = new Pair<View, String> (item_place_avatar, "shared_image_place");
+                pairs[1] = new Pair<View, String> (item_place_name, "shared_txt_name");
+                pairs[2] = new Pair<View, String> (item_place_more, "shared_img_more");
+                ActivityOptions activityOptions = ActivityOptions.
+                        makeSceneTransitionAnimation(activity, pairs);
+                view.getContext().startActivity(intent, activityOptions.toBundle());
+                break;
+            case R.id.item_place_more :
+//                Toast.makeText(view.getContext(), "sakjdkajs", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 }

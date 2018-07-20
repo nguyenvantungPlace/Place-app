@@ -15,7 +15,7 @@ public class Common {
 
     //server
 //    public static final String HOST = "127.0.0.1/"; //host nox
-    public static final String HOST = "http://192.168.1.11/";
+    public static final String HOST = "http://192.168.1.13/";
     public static final String BASE_URL = HOST + "place/";
     public static final String BASE_URL_USER_AVATAR_PLACE = BASE_URL + "public/image/avatar/place/";
     public static final String BASE_URL_USER_IMAGE_POST = BASE_URL + "public/image/post/";
