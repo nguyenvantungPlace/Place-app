@@ -30,7 +30,8 @@
         <activity android:name=".View.Register.RegisterActivity" />
         <activity android:name=".View.AddBody.AddBodyUploadActivity" />
         <activity android:name=".View.EditPost.EditPostActivity" />
-        <activity android:name=".View.Comment.CommentActivity"></activity>
+        <activity android:name=".View.Comment.CommentActivity" />
+        <activity android:name=".View.Place.PlaceActivity"></activity>
     </application>
 
 </manifest>

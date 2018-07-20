@@ -128,7 +128,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
     private void initRecyclerViewPlace() {
         listPlace = new ArrayList<>();
         prescenterLogicUser.getDataPlace(Common.USER.getIdNguoiDung(), 0); //lay du lieu ben prescenter
-        adapterListPlace = new AdapterListPlace(listPlace);
+        adapterListPlace = new AdapterListPlace(listPlace, getActivity());
         linearLayoutManagerRVPlace = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         user_rv_place.setLayoutManager(linearLayoutManagerRVPlace);
         user_rv_place.setHasFixedSize(true);
