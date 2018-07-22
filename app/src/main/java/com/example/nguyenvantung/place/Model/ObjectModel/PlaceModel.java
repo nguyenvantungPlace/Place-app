@@ -3,7 +3,9 @@ package com.example.nguyenvantung.place.Model.ObjectModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PlaceModel {
+import java.io.Serializable;
+
+public class PlaceModel implements Serializable {
     @SerializedName("id_dia_diem")
     @Expose
     private String idDiaDiem;
@@ -27,10 +29,10 @@ public class PlaceModel {
     private String xa;
     @SerializedName("latitude")
     @Expose
-    private Object latitude;
+    private String latitude;
     @SerializedName("longitude")
     @Expose
-    private Object longitude;
+    private String longitude;
     @SerializedName("thoi_gian_mo_cua")
     @Expose
     private Object thoiGianMoCua;
@@ -100,19 +102,19 @@ public class PlaceModel {
         this.xa = xa;
     }
 
-    public Object getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Object latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Object getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Object longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     //sự kiện chuyển fragment
     private void nextFragment(Fragment fragment){
+        if (fragment != null){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_fragment, fragment).commit();
+        }
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.main_fragment, fragment).commit();
     }// end sự kiện chuyển fragment

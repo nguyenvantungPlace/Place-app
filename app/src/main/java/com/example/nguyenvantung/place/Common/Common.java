@@ -32,6 +32,7 @@ public class Common {
     public static final String INTENT_ID_DIA_CHI_NEWFEED = "IDDIACHI";
     public static final String INTENT_ANH_NEWFEED = "ANHNEWFEED";
     public static final String INTENT_ID_POST = "ID_POST";
+    public static final String INTENT_PLACE_MODEL = "PLACE_MODEL";
 
     //request code
     public static final int REQUEST_CODE_SELECT_IMAGE = 0;

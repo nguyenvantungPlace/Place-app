@@ -13,7 +13,6 @@ import com.example.nguyenvantung.place.View.Upload.ViewUploadFragment;
 public class UploadViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private View view;
     public ImageView item_upload_image;
-    private LinearLayout item_upload_layout;
     private ViewUploadFragment viewUploadFragment;
 
     public UploadViewHolder(View itemView, ViewUploadFragment viewUploadFragment) {
@@ -27,17 +26,16 @@ public class UploadViewHolder extends RecyclerView.ViewHolder implements View.On
 
     private void addControls() {
         item_upload_image  = view.findViewById(R.id.item_upload_image);
-        item_upload_layout = view.findViewById(R.id.item_upload_layout);
     }
 
     private void addEvents() {
-        item_upload_layout.setOnClickListener(this);
+        item_upload_image.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.item_upload_layout:
+            case R.id.item_upload_image:
                 viewUploadFragment.imageClick(getAdapterPosition());
                 break;
         }

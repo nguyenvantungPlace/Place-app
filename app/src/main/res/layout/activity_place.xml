@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <android.support.v7.widget.Toolbar
+            android:id="@+id/place_toolbar"
             app:layout_scrollFlags="exitUntilCollapsed|scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -18,13 +19,15 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/place_NestedScrollView"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
             <android.support.v7.widget.CardView
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp"
@@ -50,14 +53,14 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp" />
                     <ImageView
-                        android:id="@+id/place_img_more"
+                        android:id="@+id/place_img_setting"
                         android:transitionName="shared_img_more"
                         android:clickable="true"
                         android:focusable="true"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:padding="8dp"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_more_vert_black_24dp"
+                        android:src="@drawable/ic_settings_black_24dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
@@ -73,8 +76,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:id="@+id/place_txt_address"
                         android:text="day la dia chi"
                         android:textSize="12sp"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_below="@+id/place_txt_name"
                         android:layout_centerHorizontal="true"
                         android:gravity="center"
@@ -92,7 +98,16 @@
                         android:layout_height="40dp" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
-        </FrameLayout>
-
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/place_recyclerview_user_liked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/place_recyclerview_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
