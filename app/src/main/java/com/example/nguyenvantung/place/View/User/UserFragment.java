@@ -151,7 +151,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
     @Override
     public void getDataPlaceSuccess(List<PlaceModel> data) {
         listPlace.addAll(data);
-        Toast.makeText(getContext(), data.get(0).getTenDiaDiem(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), data.get(0).getTenDiaDiem(), Toast.LENGTH_SHORT).show();
         adapterListPlace.notifyDataSetChanged();
     }
 
