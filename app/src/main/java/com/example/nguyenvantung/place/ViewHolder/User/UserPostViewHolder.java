@@ -1,6 +1,10 @@
 package com.example.nguyenvantung.place.ViewHolder.User;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -8,17 +12,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.nguyenvantung.place.BlurImage;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.R;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import jp.wasabeef.blurry.Blurry;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -103,16 +108,19 @@ public class UserPostViewHolder extends RecyclerView.ViewHolder {
     private void addData() {
         Log.d("test", placeModel.getTenDiaDiem());
         Picasso.get().load(Common.BASE_URL_USER_IMAGE_POST + listPost.get(0).getAnh())
-                .into(item_checkin_img_first, new com.squareup.picasso.Callback() {
+                .into(new Target() {
                     @Override
-                    public void onSuccess() {
-                        Blurry.with(view.getContext()).radius(25).sampling(1)
-                                .color(Color.argb(100, 140, 140, 140))
-                                .async().capture(view).into(item_checkin_img_first);
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        item_checkin_img_first.setImageBitmap(BlurImage.blur(view.getContext(), bitmap));
                     }
 
                     @Override
-                    public void onError(Exception e) {
+                    public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
 
                     }
                 });

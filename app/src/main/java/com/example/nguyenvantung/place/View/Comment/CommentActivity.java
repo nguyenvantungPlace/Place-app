@@ -1,9 +1,13 @@
 package com.example.nguyenvantung.place.View.Comment;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.BlurMaskFilter;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Adapter.Comment.CommentAdapter;
+import com.example.nguyenvantung.place.BlurImage;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
 import com.example.nguyenvantung.place.Model.ObjectModel.CommentModel;
@@ -27,9 +32,6 @@ import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 import com.example.nguyenvantung.place.Prescenter.Comment.PrescenterLogicComment;
 import com.example.nguyenvantung.place.R;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-import com.wonderkiln.blurkit.BlurKit;
-import com.wonderkiln.blurkit.BlurLayout;
 
 import org.w3c.dom.Comment;
 
@@ -50,7 +52,6 @@ public class CommentActivity extends AppCompatActivity implements ViewCommentAct
     private TextView comment_txt_description, comment_txt_username, item_comment_txt_send_comment;
     private RecyclerView comment_recyclervew;
     private Toolbar comment_toolbar;
-    private BlurLayout comment_blur_layout;
     private CircleImageView comment_img_avatar, item_comment_img_avatar_user_comment;
     private ImageView comment_img_like;
     private EditText item_comment_ed_comment;
@@ -67,7 +68,6 @@ public class CommentActivity extends AppCompatActivity implements ViewCommentAct
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
-        BlurKit.init(this);
 
         listComment = new ArrayList<>();
         prescenterLogicComment = new PrescenterLogicComment(this);
@@ -100,7 +100,22 @@ public class CommentActivity extends AppCompatActivity implements ViewCommentAct
 
     private void addData() {
         post = (NewfeedModel) intent.getSerializableExtra(Common.INTENT_ID_POST);
-        Picasso.get().load(Common.BASE_URL_USER_IMAGE_POST + post.getAnh()).into(comment_img_post);
+        Picasso.get().load(Common.BASE_URL_USER_IMAGE_POST + post.getAnh())
+                .into(comment_img_post, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        comment_img_post.buildDrawingCache();
+                        comment_img_post.setImageBitmap(BlurImage.blur(getWindow().getContext()
+                                , ((BitmapDrawable)comment_img_post.getDrawable()).getBitmap()));
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
+
+
         comment_txt_description.setText(post.getNoiDung());
 
         //add avatar ở ô comment

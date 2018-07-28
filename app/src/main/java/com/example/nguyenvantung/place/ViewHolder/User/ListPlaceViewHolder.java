@@ -23,10 +23,6 @@ import com.example.nguyenvantung.place.R;
 import com.example.nguyenvantung.place.View.Place.PlaceActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
-import com.wonderkiln.blurkit.BlurKit;
-
-import de.hdodenhof.circleimageview.CircleImageView;
-import jp.wasabeef.blurry.Blurry;
 
 public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private View view;

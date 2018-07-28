@@ -20,6 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <View
+            android:background="#4Dffffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:src="@color/colorBlack"
             android:id="@+id/item_checkin_img_avatar"
