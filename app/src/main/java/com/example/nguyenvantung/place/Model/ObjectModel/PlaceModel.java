@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class PlaceModel implements Serializable {
+
     @SerializedName("id_dia_diem")
     @Expose
     private String idDiaDiem;
@@ -17,7 +18,7 @@ public class PlaceModel implements Serializable {
     private String tenDiaDiem;
     @SerializedName("avatar")
     @Expose
-    private Object avatar;
+    private String avatar;
     @SerializedName("thanh_pho")
     @Expose
     private String thanhPho;
@@ -70,11 +71,11 @@ public class PlaceModel implements Serializable {
         this.tenDiaDiem = tenDiaDiem;
     }
 
-    public Object getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Object avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

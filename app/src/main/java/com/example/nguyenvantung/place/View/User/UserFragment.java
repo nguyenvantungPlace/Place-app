@@ -1,6 +1,7 @@
 package com.example.nguyenvantung.place.View.User;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
@@ -40,7 +41,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
     private RecyclerView user_recyclerview, user_rv_place;
 
     private PrescenterLogicUser prescenterLogicUser;
-    private List<NewfeedModel> newfeedList;
+    private List<PlaceModel> listPlaceCheckin;
     private UserPostAdapter userPostAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private int limit = 0;
@@ -66,6 +67,10 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
         return view;
     }
 
+    public static Fragment newInstance(){
+        return new UserFragment();
+    }
+
     private void addControlls() {
         prescenterLogicUser = new PrescenterLogicUser(this);
 
@@ -78,9 +83,9 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
         user_rv_place      = view.findViewById(R.id.user_rv_place);
 
         //init recyclerview
-        newfeedList = new ArrayList<>();
-        userPostAdapter = new UserPostAdapter(newfeedList);
-        layoutManager = new GridLayoutManager(getContext(), 3);
+        listPlaceCheckin = new ArrayList<>();
+        userPostAdapter = new UserPostAdapter(listPlaceCheckin);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         user_recyclerview.setLayoutManager(layoutManager);
         user_recyclerview.setAdapter(userPostAdapter);
 
@@ -98,6 +103,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
                 .resize(350, 350)
                 .centerCrop()
                 .into(user_img_avatar);
+
         user_txt_user_name.setText(Common.USER.getTenNguoiDung());
 
         //init data recyclerview
@@ -113,8 +119,9 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
 
     // khi bên prescenter lấy dữ liệu thành công thì nó sẽ gọi hàm này để add data vào list
     @Override
-    public void addDataToRecyclerView(List<NewfeedModel> list) {
-        newfeedList.addAll(list);
+    public void addDataToRecyclerView(List<PlaceModel> list) {
+        listPlaceCheckin.addAll(list);
+//        Log.d("kiemtra", list.get(list.size() - 1).getTenDiaDiem());
 //        Log.d("kiemtra", newfeedList.get(1).getAnh());
         userPostAdapter.notifyDataSetChanged();
     }
