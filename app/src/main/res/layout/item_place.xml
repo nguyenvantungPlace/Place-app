@@ -43,8 +43,8 @@
 
             <TextView
                 android:id="@+id/item_place_name"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginBottom="@dimen/margin_8"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:textColor="@color/colorBlack"
                 android:text="ten dia diem"
                 android:textSize="14sp"

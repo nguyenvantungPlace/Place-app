@@ -1,10 +1,7 @@
 package com.example.nguyenvantung.place.ViewHolder.User;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.nguyenvantung.place.BlurImage;
+import com.example.nguyenvantung.place.Model.Convert.BlurImage;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
