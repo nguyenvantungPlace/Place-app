@@ -1,6 +1,7 @@
 package com.example.nguyenvantung.place.Common;
 
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.os.Parcelable;
 
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
@@ -103,6 +104,7 @@ public class Common {
 
     // info login place
     public static UserModel USER = new UserModel();
+    public static Location LOCATION_DEVICE = null;
 
     public static SharedPreferences LOGIN_SHAREPREFERENCES;
     public static NewfeedModel NEWFEEDEDIT;

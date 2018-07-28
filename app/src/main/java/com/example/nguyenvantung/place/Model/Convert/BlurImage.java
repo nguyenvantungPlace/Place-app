@@ -1,4 +1,4 @@
-package com.example.nguyenvantung.place;
+package com.example.nguyenvantung.place.Model.Convert;
 
 import android.content.Context;
 import android.graphics.Bitmap;

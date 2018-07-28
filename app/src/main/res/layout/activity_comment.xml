@@ -23,19 +23,13 @@
                     app:layout_collapseMode="parallax"
                     android:layout_width="match_parent"
                     android:layout_height="250dp" />
-                <!--<com.wonderkiln.blurkit.BlurLayout-->
-                    <!--xmlns:blurkit="http://schemas.android.com/apk/res-auto"-->
-                    <!--android:id="@+id/comment_blur_layout"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent">-->
-                    <TextView
-                        android:id="@+id/comment_txt_description"
-                        android:background="#4D000000"
-                        android:textColor="@color/colorPrimary"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                <!--</com.wonderkiln.blurkit.BlurLayout>-->
+                <TextView
+                    android:id="@+id/comment_txt_description"
+                    android:background="#4D000000"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </FrameLayout>
             <android.support.v7.widget.Toolbar
                 android:id="@+id/comment_toolbar"

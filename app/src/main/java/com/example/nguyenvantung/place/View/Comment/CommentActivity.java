@@ -1,20 +1,13 @@
 package com.example.nguyenvantung.place.View.Comment;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BlurMaskFilter;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Adapter.Comment.CommentAdapter;
-import com.example.nguyenvantung.place.BlurImage;
+import com.example.nguyenvantung.place.Model.Convert.BlurImage;
 import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
 import com.example.nguyenvantung.place.Model.ObjectModel.CommentModel;
@@ -32,8 +25,6 @@ import com.example.nguyenvantung.place.Model.ObjectModel.UserModel;
 import com.example.nguyenvantung.place.Prescenter.Comment.PrescenterLogicComment;
 import com.example.nguyenvantung.place.R;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Comment;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
