@@ -61,6 +61,7 @@ public interface DataClient {
                                @Field(Common.REQUEST_SERVER_PASSWORD) String password);
 
 
+    //------------------------------------ bài đăng ------------------------------------------------
     //post bài đăng
     @FormUrlEncoded
     @POST(Common.BASE_API_PHP)
@@ -142,6 +143,14 @@ public interface DataClient {
                                       @Field(Common.ACTION) String action,
                                       @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
 
+    //lấy bài đăng từ id_nguoi_dung và id_dia_diem để show danh sách ảnh của người dùng đã checkin
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<NewfeedModel>> getPostFromIDUserIDPlace(@Field(Common.CONTROLLER) String controller,
+                                                @Field(Common.ACTION) String action,
+                                                @Field(Common.REQUEST_SERVER_ID_USER) int id_user,
+                                                @Field(Common.REQUEST_SERVER_ID_PLACE) int id_place);
+
     //--------------------------------- bình luận --------------------------------------------------
     //lấy tất cả comment từ id bài dăng
     @FormUrlEncoded
@@ -201,7 +210,7 @@ public interface DataClient {
                                           @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
 
 
-    //------------------------------ lấy bài đăng --------------------------------------------------
+    //------------------------------ lấy địa điểm --------------------------------------------------
     //lấy bài đăng và gán vào
     @FormUrlEncoded
     @POST(Common.BASE_API_PHP)
@@ -216,4 +225,19 @@ public interface DataClient {
     Call<CheckTrueFalse> checkPlace(@Field(Common.CONTROLLER) String controller,
                                     @Field(Common.ACTION) String action,
                                     @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+
+    //lấy danh sách các địa điểm ma fnguowif dùng đã checkin
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<PlaceModel>> getListPlaceFromIDUSerCheckin(@Field(Common.CONTROLLER) String controller,
+                                                         @Field(Common.ACTION) String action,
+                                                         @Field(Common.REQUEST_SERVER_ID_USER) int id_user);
+
+
+    //lấy thông tin địa điểm bằng iddiadiem
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<PlaceModel> getPlaceFromID(@Field(Common.CONTROLLER) String controller,
+                                    @Field(Common.ACTION) String action,
+                                    @Field(Common.REQUEST_SERVER_ID_PLACE) int id_place);
 }

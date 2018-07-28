@@ -6,7 +6,7 @@ import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import java.util.List;
 
 public interface ViewUserFragment {
-    void addDataToRecyclerView(List<NewfeedModel> newfeedList);
+    void addDataToRecyclerView(List<PlaceModel> list);
     void addDataLoadMore();
     void checkPlaceTrue();
     void checkPlaceFalse();

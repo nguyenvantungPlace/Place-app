@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.main_fragment, fragment).commit();
         }
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.main_fragment, fragment).commit();
+//        mFragmentTransaction = mFragmentManager.beginTransaction();
+//        mFragmentTransaction.replace(R.id.main_fragment, fragment).commit();
     }// end sự kiện chuyển fragment
 
     // sự kiện khi click vào item của bottom navigation
@@ -77,23 +77,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (id_item){
             case R.id.menu_bottom_nav_home:
                 nextFragment(new HomeFragment());
-//                main_viewpager.setCurrentItem(0);
                 return true;
             case R.id.menu_bottom_nav_find:
                 nextFragment(new FindFragment());
-//                main_viewpager.setCurrentItem(1);
                 return true;
             case R.id.menu_bottom_nav_upload:
                 nextFragment(new UploadFragment());
-//                main_viewpager.setCurrentItem(2);
                 return true;
             case R.id.menu_bottom_nav_notifi:
                 nextFragment(new NotifiFragment());
-//                main_viewpager.setCurrentItem(3);
                 return true;
             case R.id.menu_bottom_nav_user:
                 nextFragment(new UserFragment());
-//                main_viewpager.setCurrentItem(4);
                 return true;
         }
         return false;

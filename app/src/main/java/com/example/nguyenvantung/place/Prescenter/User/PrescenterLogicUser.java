@@ -27,26 +27,28 @@ public class PrescenterLogicUser implements PrescenterIMPUser {
     }
 
 
+    //lay cac dia diem ma nguoi dung da checkin
     @Override
     public List<NewfeedModel> getData(int limit) {
-        Call<List<NewfeedModel>> callback = dataClient.getPostFromUDUser(Common.CONTROLLER_POST,
-                Common.ACTION_GET_POST_FROM_ID_USER, Common.USER.getIdNguoiDung(), limit);
+        Call<List<PlaceModel>> callback = dataClient.getListPlaceFromIDUSerCheckin(Common.CONTROLLER_PLACE,
+                Common.ACTION_GET_PLACE_FROM_IDUSER_CHECKIN, Common.USER.getIdNguoiDung());
 
-        callback.enqueue(new Callback<List<NewfeedModel>>() {
+        callback.enqueue(new Callback<List<PlaceModel>>() {
             @Override
-            public void onResponse(Call<List<NewfeedModel>> call, Response<List<NewfeedModel>> response) {
+            public void onResponse(Call<List<PlaceModel>> call, Response<List<PlaceModel>> response) {
                 Log.d("kiemtra", response.body().size() + "");
                 if (response.body() != null) viewUserFragment.addDataToRecyclerView(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<NewfeedModel>> call, Throwable t) {
-                Log.d("kiemtra", "loi: " + t.getLocalizedMessage());
+            public void onFailure(Call<List<PlaceModel>> call, Throwable t) {
+                Log.d("kiemtra", "loi lay thong tin checkin: " + t.getLocalizedMessage());
             }
         });
         return null;
     }
 
+    //kiem tra xem nguoi dung co lam chu 1 dia diem nao khong
     @Override
     public void checkPlaceInIDUser(int id_user) {
         Call<CheckTrueFalse> callback = Common.DATA_CLIENT.checkPlace(Common.CONTROLLER_PLACE,
@@ -66,6 +68,7 @@ public class PrescenterLogicUser implements PrescenterIMPUser {
         });
     }
 
+    //lay cac dia diem
     @Override
     public void getDataPlace(int id_user, int limit) {
         Call<List<PlaceModel>> callback = Common.DATA_CLIENT.getPlace(Common.CONTROLLER_PLACE,

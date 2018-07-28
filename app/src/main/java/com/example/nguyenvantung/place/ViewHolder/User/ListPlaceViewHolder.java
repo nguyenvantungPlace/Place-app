@@ -3,11 +3,14 @@ package com.example.nguyenvantung.place.ViewHolder.User;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,16 +21,18 @@ import com.example.nguyenvantung.place.Common.Common;
 import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.R;
 import com.example.nguyenvantung.place.View.Place.PlaceActivity;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.wonderkiln.blurkit.BlurKit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import jp.wasabeef.blurry.Blurry;
 
 public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private View view;
-    private CircleImageView item_place_avatar;
+    private ImageView item_place_avatar;
     private TextView item_place_name;
-    private RelativeLayout item_place_layout;
+    private CardView item_place_layout;
     private ImageView item_place_background, item_place_setting;
 
     private PlaceModel placeModel;
@@ -51,15 +56,16 @@ public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View
     private void addData() {
         item_place_name.setText(placeModel.getTenDiaDiem());
         Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar()).into(item_place_avatar);
-        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar())
-                .resize(250, 96).into(item_place_background);
+//        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar())
+//                .into(item_place_background);
+//        Blurry.with(view.getContext()).capture(view).into(item_place_background);
     }
 
     private void addControlls() {
         item_place_avatar = view.findViewById(R.id.item_place_avatar);
         item_place_name   = view.findViewById(R.id.item_place_name);
         item_place_layout = view.findViewById(R.id.item_place_layout);
-        item_place_background = view.findViewById(R.id.item_place_background);
+//        item_place_background = view.findViewById(R.id.item_place_background);
         item_place_setting   = view.findViewById(R.id.item_place_setting);
     }
 

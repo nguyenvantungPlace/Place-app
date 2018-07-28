@@ -76,6 +76,9 @@ public class Common {
     public static final String ACTION_UNLIKE_COMMENT = "unLikeComment";
     public static final String ACTION_CHECK_PLACE_FROM_IDUSER = "checkPlaceInIDUser";
     public static final String ACTION_GET_PLACE_FROM_IDUSER = "getAllPlace";
+    public static final String ACTION_GET_PLACE_FROM_IDUSER_CHECKIN = "getPlaceFromIDUserCheckIn";
+    public static final String ACTION_GET_POST_FROM_IDPLACE = "getPostFromIDPlace";
+    public static final String ACTION_GET_PLACE_FROM_ID = "getPlaceFromID";
 
     //request method Post
     public static final String REQUEST_SERVER_USER_NAME = "user_name";
