@@ -37,6 +37,10 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    public static Fragment newInstance(){
+        return new HomeFragment();
+    }
+
     private void addControls() {
         // init viewpager
         home_viewpager = view.findViewById(R.id.home_viewpager);

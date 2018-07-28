@@ -19,6 +19,9 @@ public class FindFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static Fragment newInstance(){
+        return new FindFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

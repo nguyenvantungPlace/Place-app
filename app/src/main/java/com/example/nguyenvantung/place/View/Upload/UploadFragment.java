@@ -76,6 +76,10 @@ public class UploadFragment extends Fragment implements ViewUploadFragment, View
         return view;
     }
 
+    public static Fragment newInstance(){
+        return new UploadFragment();
+    }
+
     private void addControls() {
         upload_recyclerview = view.findViewById(R.id.upload_recyclerview);
         initRecyclerview();

@@ -26,15 +26,23 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private ViewPager main_viewpager;
 
     //fragment
-    private FragmentManager mFragmentManager;
+    private FragmentManager fm;
     private FragmentTransaction mFragmentTransaction;
+
+    final Fragment homefm = HomeFragment.newInstance();
+    final Fragment findfm = FindFragment.newInstance();
+    final Fragment uploadfm = UploadFragment.newInstance();
+    final Fragment notifm = NotifiFragment.newInstance();
+    final Fragment userfm = UserFragment.newInstance();
+
+    Fragment active = homefm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFragmentManager = getSupportFragmentManager();
+//        mFragmentManager = getSupportFragmentManager();
 
         addControls();
         addEvents();
@@ -42,15 +50,23 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     //khởi tạo control
     private void addControls() {
-//        main_viewpager = findViewById(R.id.main_viewpager);
-//        MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
-//        main_viewpager.setAdapter(mainViewPagerAdapter);
-
         //bottom navigation
         main_bottom_nav = findViewById(R.id.main_bottom_nav);
         main_bottom_nav.setSelectedItemId(R.id.menu_bottom_nav_home);
-        nextFragment(new HomeFragment());
+//        nextFragment(new HomeFragment());
+
+
+        setFragment();
     }//end khởi tạo control
+
+    private void setFragment() {
+        fm = getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.main_fragment, findfm, "FIND").hide(findfm).commit();
+        fm.beginTransaction().add(R.id.main_fragment, uploadfm, "UPLOAD").hide(uploadfm).commit();
+        fm.beginTransaction().add(R.id.main_fragment, notifm, "NOTIFI").hide(notifm).commit();
+        fm.beginTransaction().add(R.id.main_fragment, userfm, "USER").hide(userfm).commit();
+        fm.beginTransaction().add(R.id.main_fragment, homefm, "HOME").commit();
+    }
 
 
     //khởi tạo event cho các control
@@ -60,35 +76,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }//end khởi tạo event cho các control
 
 
-    //sự kiện chuyển fragment
-    private void nextFragment(Fragment fragment){
-        if (fragment != null){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.main_fragment, fragment).commit();
-        }
-//        mFragmentTransaction = mFragmentManager.beginTransaction();
-//        mFragmentTransaction.replace(R.id.main_fragment, fragment).commit();
-    }// end sự kiện chuyển fragment
-
     // sự kiện khi click vào item của bottom navigation
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id_item = item.getItemId();
         switch (id_item){
             case R.id.menu_bottom_nav_home:
-                nextFragment(new HomeFragment());
-                return true;
+                if (!(active instanceof HomeFragment)) fm.beginTransaction().hide(active).show(homefm).commit();
+                active = homefm;
+                return  true;
             case R.id.menu_bottom_nav_find:
-                nextFragment(new FindFragment());
+                if (!(active instanceof FindFragment)) fm.beginTransaction().hide(active).show(findfm).commit();
+                active = findfm;
                 return true;
             case R.id.menu_bottom_nav_upload:
-                nextFragment(new UploadFragment());
+                if (!(active instanceof UploadFragment)) fm.beginTransaction().hide(active).show(uploadfm).commit();
+                active = uploadfm;
                 return true;
             case R.id.menu_bottom_nav_notifi:
-                nextFragment(new NotifiFragment());
+                if (!(active instanceof NotifiFragment)) fm.beginTransaction().hide(active).show(notifm).commit();
+                active = notifm;
                 return true;
             case R.id.menu_bottom_nav_user:
-                nextFragment(new UserFragment());
+                if (!(active instanceof UserFragment)) fm.beginTransaction().hide(active).show(userfm).commit();
+                active = userfm;
                 return true;
         }
         return false;

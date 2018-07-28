@@ -19,6 +19,10 @@ public class NotifiFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static Fragment newInstance(){
+        return new NotifiFragment();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

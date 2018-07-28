@@ -67,6 +67,10 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
         return view;
     }
 
+    public static Fragment newInstance(){
+        return new UserFragment();
+    }
+
     private void addControlls() {
         prescenterLogicUser = new PrescenterLogicUser(this);
 
