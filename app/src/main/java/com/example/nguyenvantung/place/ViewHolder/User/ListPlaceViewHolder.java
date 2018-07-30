@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Location;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.CardView;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Common.Common;
+import com.example.nguyenvantung.place.Model.Convert.Distance;
 import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.R;
 import com.example.nguyenvantung.place.View.Place.PlaceActivity;
@@ -27,7 +29,7 @@ import com.squareup.picasso.Picasso;
 public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private View view;
     private ImageView item_place_avatar;
-    private TextView item_place_name;
+    private TextView item_place_name, item_place_distance;
     private CardView item_place_layout;
     private ImageView item_place_background, item_place_setting;
 
@@ -52,9 +54,13 @@ public class ListPlaceViewHolder extends RecyclerView.ViewHolder implements View
     private void addData() {
         item_place_name.setText(placeModel.getTenDiaDiem());
         Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar()).into(item_place_avatar);
-//        Picasso.get().load(Common.BASE_URL_USER_AVATAR_PLACE + placeModel.getAvatar())
-//                .into(item_place_background);
-//        Blurry.with(view.getContext()).capture(view).into(item_place_background);
+
+        item_place_distance = view.findViewById(R.id.item_place_distance);
+        Location placeLocation = new Location("PlaceLocation");
+        placeLocation.setLatitude(Double.parseDouble(placeModel.getLatitude()));
+        placeLocation.setLongitude(Double.parseDouble(placeModel.getLongitude()));
+//        double distance = Common.LOCATION_DEVICE.distanceTo(placeLocation);
+        item_place_distance.setText(Distance.getDistance(placeLocation));
     }
 
     private void addControlls() {

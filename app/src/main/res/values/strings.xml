@@ -43,4 +43,7 @@
     <string name="delete">xóa</string>
     <string name="control_place">Quản lí địa điểm</string>
     <string name="title_activity_maps">Map</string>
+    <string name="des">Mô tả:</string>
+    <string name="flow">Theo dõi:</string>
+    <string name="checkin">Check in:</string>
 </resources>

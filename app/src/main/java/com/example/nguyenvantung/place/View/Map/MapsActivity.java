@@ -1,4 +1,4 @@
-package com.example.nguyenvantung.place.View;
+package com.example.nguyenvantung.place.View.Map;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
