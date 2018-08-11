@@ -16,7 +16,7 @@ public class Common {
 
     //server
 //    public static final String HOST = "127.0.0.1/"; //host nox
-    public static final String HOST = "http://192.168.1.13/";
+    public static final String HOST = "http://192.168.1.10/";
     public static final String BASE_URL = HOST + "place/";
     public static final String BASE_URL_USER_AVATAR_PLACE = BASE_URL + "public/image/avatar/place/";
     public static final String BASE_URL_USER_IMAGE_POST = BASE_URL + "public/image/post/";
@@ -33,7 +33,12 @@ public class Common {
     public static final String INTENT_ID_DIA_CHI_NEWFEED = "IDDIACHI";
     public static final String INTENT_ANH_NEWFEED = "ANHNEWFEED";
     public static final String INTENT_ID_POST = "ID_POST";
+    //---------------------------place
     public static final String INTENT_PLACE_MODEL = "PLACE_MODEL";
+    public static final String INTENT_DATA_PAGE_MAP = "PAGEMAP";
+    public static final String INTENT_PAGE_MAP_HOME = "HOME";
+    public static final String INTENT_PAGE_MAP_CHECKIN = "CHECKIN";
+    public static final String INTENT_PAGE_MAP_MENU = "MENU";
 
     //request code
     public static final int REQUEST_CODE_SELECT_IMAGE = 0;

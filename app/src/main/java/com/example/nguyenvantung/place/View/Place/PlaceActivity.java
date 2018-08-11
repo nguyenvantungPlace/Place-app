@@ -63,7 +63,7 @@ public class PlaceActivity extends AppCompatActivity implements ViewPlaceActivit
         place_dot_second = findViewById(R.id.place_dot_second);
         place_dot_third = findViewById(R.id.place_dot_third);
         place_viewpager = findViewById(R.id.place_viewpager);
-        placeViewPagerAdapter = new PlaceViewPagerAdapter(getSupportFragmentManager());
+        placeViewPagerAdapter = new PlaceViewPagerAdapter(getSupportFragmentManager(), placeModel);
         place_viewpager.setAdapter(placeViewPagerAdapter);
 
         //fix hien tuong scroll cham
