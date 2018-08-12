@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
+                android:id="@+id/item_place_distance"
                 android:textColor="#790e8b"
                 android:text="20 m"
                 android:background="@drawable/background_distance"

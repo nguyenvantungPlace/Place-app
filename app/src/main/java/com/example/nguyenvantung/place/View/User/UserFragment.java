@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
     private TextView user_txt_user_name, user_size_post, user_edit_profile, user_txt_controll_place;
     private CircleImageView user_img_avatar;
     private RecyclerView user_recyclerview, user_rv_place;
+    private ProgressBar user_progressbar;
 
     private PrescenterLogicUser prescenterLogicUser;
     private List<PlaceModel> listPlaceCheckin;
@@ -81,6 +83,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
         user_recyclerview  = view.findViewById(R.id.user_recyclerview);
         user_txt_controll_place = view.findViewById(R.id.user_txt_controll_place);
         user_rv_place      = view.findViewById(R.id.user_rv_place);
+        user_progressbar   = view.findViewById(R.id.user_progressbar);
 
         //init recyclerview
         listPlaceCheckin = new ArrayList<>();
@@ -160,6 +163,7 @@ public class UserFragment extends Fragment implements ViewUserFragment, View.OnC
         listPlace.addAll(data);
 //        Toast.makeText(getContext(), data.get(0).getTenDiaDiem(), Toast.LENGTH_SHORT).show();
         adapterListPlace.notifyDataSetChanged();
+        user_progressbar.setVisibility(View.GONE);
     }
 
     @Override

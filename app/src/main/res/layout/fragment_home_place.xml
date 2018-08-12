@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".View.PlaceFragment.home.HomePlaceFragment">
+    <LinearLayout
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_weight="9"
+                android:background="@color/hint"
+                android:layout_width="wrap_content"
+                android:layout_height="0.3dp"/>
+            <TextView
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginRight="@dimen/margin_16"
+                android:text="@string/map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_weight="9"
+                android:background="@color/hint"
+                android:layout_width="wrap_content"
+                android:layout_height="0.3dp"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/home_place_cardview"
+            app:cardCornerRadius="8dp"
+            android:elevation="9dp"
+            android:layout_margin="@dimen/margin_16"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <fragment
+                android:id="@+id/home_place_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment"/>
+            <LinearLayout
+                android:id="@+id/nextpage_map"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/home_place_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

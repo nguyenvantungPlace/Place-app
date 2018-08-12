@@ -9,7 +9,7 @@
     android:elevation="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:src="@color/colorBlack"
+            android:layout_centerVertical="true"
             android:id="@+id/item_checkin_img_avatar"
             android:layout_marginTop="@dimen/margin_16"
             android:layout_marginLeft="@dimen/margin_16"
