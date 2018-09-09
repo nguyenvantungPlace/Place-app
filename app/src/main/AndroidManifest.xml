@@ -26,12 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Main.MainActivity" />
+        <activity android:name=".View.Main.MainActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".View.Login.LoginActivity" />
         <activity android:name=".View.Register.RegisterActivity" />
         <activity android:name=".View.AddBody.AddBodyUploadActivity" />
         <activity android:name=".View.EditPost.EditPostActivity" />
-        <activity android:name=".View.Comment.CommentActivity" />
+        <activity android:name=".View.Comment.CommentActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".View.Place.PlaceActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

@@ -53,7 +53,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddBodyUploadActivity extends AppCompatActivity implements View.OnClickListener, ViewAddBodyUpload {
     private Toolbar addbody_toolbar;
-    private ImageView addbody_image;
+    private ImageView addbody_image, addbody_img_getlocation;
     private LinearLayout upload_post;
     private ProgressDialog mProgressDialog;
     private TextInputEditText addbody_txt_desciption;
@@ -91,6 +91,7 @@ public class AddBodyUploadActivity extends AppCompatActivity implements View.OnC
         upload_post            = findViewById(R.id.upload_post);
         addbody_txt_desciption = findViewById(R.id.addbody_txt_desciption);
         addbody_txt_place      = findViewById(R.id.addbody_txt_place);
+        addbody_img_getlocation= findViewById(R.id.addbody_img_getlocation);
     }
 
     private void addProgressbarDialog() {
@@ -120,6 +121,7 @@ public class AddBodyUploadActivity extends AppCompatActivity implements View.OnC
             }
         });
         upload_post.setOnClickListener(this);
+        addbody_img_getlocation.setOnClickListener(this);
     }
 
     private void uploadImagePost() {
@@ -153,12 +155,19 @@ public class AddBodyUploadActivity extends AppCompatActivity implements View.OnC
                 imageName);
     }
 
+    private void getCheckIn() {
+
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.upload_post:
                 mProgressDialog.show();
                 uploadImagePost();
+                break;
+            case R.id.addbody_img_getlocation:
+                getCheckIn();
                 break;
         }
     }

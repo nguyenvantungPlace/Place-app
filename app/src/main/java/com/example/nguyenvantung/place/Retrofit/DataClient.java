@@ -5,6 +5,7 @@ import com.example.nguyenvantung.place.Model.ObjectModel.AvatarUserCommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CheckTrueFalse;
 import com.example.nguyenvantung.place.Model.ObjectModel.CommentModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.CountModel;
+import com.example.nguyenvantung.place.Model.ObjectModel.ImagePlaceModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.NewfeedModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.PlaceModel;
 import com.example.nguyenvantung.place.Model.ObjectModel.UploadObject;
@@ -240,4 +241,28 @@ public interface DataClient {
     Call<PlaceModel> getPlaceFromID(@Field(Common.CONTROLLER) String controller,
                                     @Field(Common.ACTION) String action,
                                     @Field(Common.REQUEST_SERVER_ID_PLACE) int id_place);
+
+
+
+    //--------------------------Image Place----------------------------------
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<List<ImagePlaceModel>> getAllImagePlace(@Field(Common.CONTROLLER) String controller,
+                                                 @Field(Common.ACTION) String action,
+                                                 @Field(Common.REQUEST_SERVER_ID_PLACE) int id_place);
+
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<ImagePlaceModel> getImagePlaceFromID(@Field(Common.CONTROLLER) String Controller,
+                                              @Field(Common.ACTION) String action,
+                                              @Field(Common.REQUEST_SERVER_ID_IMAGE_PLACE) int id_image_place);
+
+    @FormUrlEncoded
+    @POST(Common.BASE_API_PHP)
+    Call<CheckTrueFalse> uploadImagePlace(@Field(Common.CONTROLLER) String controller,
+                                          @Field(Common.ACTION) String action,
+                                          @Field(Common.REQUEST_SERVER_ID_PLACE) int id_place,
+                                          @Field(Common.REQUEST_SERVER_DESCRIPTION) String des,
+                                          @Field(Common.REQUEST_SERVER_IMAGE_NAME) String imageName,
+                                          @Field(Common.REQUEST_SERVER_DATE) String date_upload);
 }
