@@ -111,7 +111,7 @@
             <ImageView
                 android:id="@+id/addbody_image"
                 android:layout_width="match_parent"
-                android:scaleType="center"
+                android:scaleType="centerCrop"
                 android:transitionName="Shared_item_upload"
                 android:layout_height="250dp" />
         </android.support.v7.widget.CardView>

@@ -16,7 +16,7 @@ public class Common {
 
     //server
 //    public static final String HOST = "127.0.0.1/"; //host nox
-    public static final String HOST = "http://192.168.1.10/";
+    public static final String HOST = "http://192.168.1.14/";
     public static final String BASE_URL = HOST + "place/";
     public static final String BASE_URL_USER_AVATAR_PLACE = BASE_URL + "public/image/avatar/place/";
     public static final String BASE_URL_USER_IMAGE_POST = BASE_URL + "public/image/post/";
@@ -102,6 +102,7 @@ public class Common {
     public static final String REQUEST_SERVER_ID_POST = "id_post";
     public static final String REQUEST_SERVER_TIME_COMMENT = "thoi_gian_binh_luan";
     public static final String REQUEST_SERVER_ID_COMMENT = "id_comment";
+    public static final String REQUEST_SERVER_ID_IMAGE_PLACE = "id_anh_dia_diem";
 
     //SharePrefer
     public static final String IMAGE_UPLOAD_URI = "image_upload_uri";

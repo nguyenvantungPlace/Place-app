@@ -165,8 +165,15 @@
             android:layout_height="8dp" />
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/colorBackgroundFloating"
+        android:elevation="9dp"
+        android:src="@drawable/ic_file_upload_black_24dp"
+        app:borderWidth="0dp"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_margin="@dimen/margin_8"
         android:layout_gravity="right|bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="56dp"
+        android:layout_height="56dp" />
 </android.support.design.widget.CoordinatorLayout>
