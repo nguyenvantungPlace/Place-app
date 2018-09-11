@@ -3,12 +3,14 @@ package com.example.nguyenvantung.place.View.Comment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.hardware.input.InputManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -180,11 +182,16 @@ public class CommentActivity extends AppCompatActivity implements ViewCommentAct
         commentAdapter.notifyDataSetChanged();
         item_comment_ed_comment.setText("");
         comment_recyclervew.scrollToPosition(listComment.size());
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        if (imm.isAcceptingText()) imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         progressDialog.dismiss();
     }
 
     @Override
     public void commentFail() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        if (imm.isAcceptingText()) imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        progressDialog.dismiss();
         Toast.makeText(this, "Comment Fail", Toast.LENGTH_SHORT).show();
     }
 

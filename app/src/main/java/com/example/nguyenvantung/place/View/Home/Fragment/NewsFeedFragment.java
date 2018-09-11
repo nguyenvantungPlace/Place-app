@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.nguyenvantung.place.Adapter.Newfeed.NewfeedRecyclerViewAdapter;
 import com.example.nguyenvantung.place.Common.Common;
@@ -30,11 +32,12 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
+public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment, SwipeRefreshLayout.OnRefreshListener {
     private View view;
     private RecyclerView newsfeed_recyclerview;
     private ProgressBar newsfeed_progressbar;
     private PrescenterLoginNewfeed prescenterLoginNewfeed;
+    private SwipeRefreshLayout swipe;
 
     private static List<NewfeedModel> newfeedModelList;
     private static NewfeedRecyclerViewAdapter newfeedRecyclerViewAdapter;
@@ -71,7 +74,7 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
         newfeedRecyclerViewAdapter = new NewfeedRecyclerViewAdapter(newfeedModelList, this);
         newsfeed_recyclerview.setAdapter(newfeedRecyclerViewAdapter);
         newsfeed_progressbar = view.findViewById(R.id.newsfeed_progressbar);
-
+        swipe = view.findViewById(R.id.swipe);
     }
 
     private void addData() {
@@ -79,6 +82,7 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
 
     private void addEvents() {
         newsfeed_recyclerview.addOnScrollListener(new LoadMore(newsfeed_recyclerview.getLayoutManager(), this));
+        swipe.setOnRefreshListener(this);
     }
 
     @Override
@@ -86,6 +90,7 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
         newfeedModelList.addAll(list);
         newfeedRecyclerViewAdapter.notifyDataSetChanged();
         newsfeed_progressbar.setVisibility(View.GONE);
+        swipe.setRefreshing(false);
     }
 
     @Override
@@ -122,5 +127,16 @@ public class NewsFeedFragment extends Fragment implements ViewNewfeedFragment {
     public void changePostEdited(int postion){
         newfeedModelList.set(postion, Common.NEWFEEDEDIT);
         newfeedRecyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onRefresh() {
+        if (swipe.getScrollY() == 0){
+            newfeedModelList.clear();
+            limit = 0;
+            prescenterLoginNewfeed.getPost(limit);
+            Log.d("NewFeedFragment", "Swiped");
+            newsfeed_recyclerview.addOnScrollListener(new LoadMore(newsfeed_recyclerview.getLayoutManager(), this));
+        }
     }
 }

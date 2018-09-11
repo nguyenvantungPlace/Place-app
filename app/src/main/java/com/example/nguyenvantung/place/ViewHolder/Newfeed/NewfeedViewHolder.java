@@ -1,10 +1,12 @@
 package com.example.nguyenvantung.place.ViewHolder.Newfeed;
 
+import android.app.ProgressDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -40,6 +42,7 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
     private RecyclerView item_newfeed_recyclerview_avatar_user_comment;
     private ImageView item_newfeed_more;
     private EditText item_newfeed_ed_comment;
+    private ProgressDialog progressDialog;
 
     private NewfeedModel postModel;
     private List<AvatarUserCommentModel> listAvatarUserCommentModel;
@@ -49,8 +52,15 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
         this.view = itemView;
         this.viewNewfeedFragment = viewNewfeedFragment;
 
+        initProgrssBar();
         addControls();
         addEvents();
+    }
+
+    private void initProgrssBar() {
+        progressDialog = new ProgressDialog(view.getContext());
+        progressDialog.setMessage(view.getContext().getResources().getString(R.string.requesting_to_server));
+        progressDialog.setTitle("Bình luận");
     }
 
     private void addControls() {
@@ -286,6 +296,7 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
 
     //comment bài đăng ngay trên item bài đăng
     private void commentInPost() {
+        progressDialog.show();
         String time = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 
         Call<CheckTrueFalse> callback = Common.DATA_CLIENT.insertComment(Common.CONTROLLER_COMMENT,
@@ -308,10 +319,17 @@ public class NewfeedViewHolder extends RecyclerView.ViewHolder implements View.O
 
     private void commentSucces(){
         item_newfeed_ed_comment.setText("");
+        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(view.getContext().INPUT_METHOD_SERVICE);
+        if (imm.isAcceptingText()) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        progressDialog.dismiss();
+        Toast.makeText(view.getContext(), "Comment Success", Toast.LENGTH_SHORT).show();
     }
 
     private void commentFail(){
-
+        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(view.getContext().INPUT_METHOD_SERVICE);
+        if (imm.isAcceptingText()) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        progressDialog.dismiss();
+        Toast.makeText(view.getContext(), "Comment Fail", Toast.LENGTH_SHORT).show();
     }
 
     @Override
